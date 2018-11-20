@@ -1,0 +1,29 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build scratchfile",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "${workspaceFolder}/src/scratch.cpp",
+                "-o${workspaceFolder}/bin/scratch",
+                "-O3",
+                "-Wall",
+                "-I${workspaceFolder}/ann_1.1.2/include",
+                "-L${workspaceFolder}/ann_1.1.2/lib",
+                "-lANN"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}
