@@ -11,9 +11,9 @@ def make_cluster(dims: int, center: tuple,  delta_x: float,  delta_y: float, par
     n_x = int(delta_x / particle_spacing)
     n_y = int(delta_y / particle_spacing)
     x = np.linspace(center[0] - delta_x/2, center[0] + delta_x/2,
-                    num=n_x, dtype=np.float64)
+                    num=n_x)
     y = np.linspace(center[1] - delta_y/2, center[1] + delta_y/2,
-                    num=n_y, dtype=np.float64)
+                    num=n_y)
 
     clusterpoints_x = np.ndarray(n_x * n_y)
     clusterpoints_y = np.ndarray(n_x * n_y)

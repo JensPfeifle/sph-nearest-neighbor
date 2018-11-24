@@ -23,8 +23,6 @@ def read_results(file="result.dat"):
     with open(file, 'r') as f:
         lines = f.readlines()
         n = len(lines)
-        x = np.ndarray(n, dtype=np.float64)
-        y = np.ndarray(n, dtype=np.float64)
         neighbor_idxs = []
         for n, line in enumerate(lines):
             if n == 0:
