@@ -18,11 +18,9 @@ During an SPH-method simulation, particles interact locally within a characteris
 > Although the size of the smoothing length can be fixed in both space and time, this does not take advantage of the full power of SPH. By assigning each particle its own smoothing length and allowing it to vary with time, the resolution of a simulation can be made to automatically adapt itself depending on local conditions. For example, in a very dense region where many particles are close together, the smoothing length can be made relatively short, yielding high spatial resolution. Conversely, in low-density regions where individual particles are far apart and the resolution is low, the smoothing length can be increased, optimising the computation for the regions of interest. 
 [Source](https://en.wikipedia.org/wiki/Smoothed-particle_hydrodynamics#Interpolations)
 
-This Code
+Objective
 ----------
-This repository provides code to solve a fixed-radius near neighbor search problem for SPH code developed at ITS-KIT. 
 
-### Objective
 For each point _p<sub>1</sub>_ within the computational domain (given in a list), find all neighbors _p<sub>2</sub>_ that lie less than three times the mean particle spacing _dx_ (~particle Diameter) away from the particle. This includes the particle itself. 
 
 ### Problem properties:
@@ -33,9 +31,18 @@ For each point _p<sub>1</sub>_ within the computational domain (given in a list)
 
 Since the neighbors must be found for all points, we can use the fact that, if we know that _p<sub>b</sub>_ is a neighbor of _p<sub>a</sub>_ then _p<sub>a</sub>_ is also a neighbor of _p<sub>b</sub>_.   
 
+ANN Library
+-----------
+
+### Fixed-radius k-nearest neighbor search with ANN
+
+From the ANN Progrograming Manual (page 7):
+> In order to produce a true fixed-radius search,  first set k = 0 and run the procedure in order to obtain the number k' of points that lie within the radius bound. Then, allocate index and distance arrays of size k' each, and repeat the fixed-radius search by setting k = k' and passing in these two arrays.
+
 References
 ----------
 
 1. [Smoothed-particle hydrodynamics](https://en.wikipedia.org/wiki/Smoothed-particle_hydrodynamics). Wikipedia.
 2. Hoetzlein, Rama (2014), ["Fast Fixed-Radius Nearest Neighbors: Interactive Million-Particle Fluids"](http://on-demand.gputechconf.com/gtc/2014/presentations/S4117-fast-fixed-radius-nearest-neighbor-gpu.pdf), GPU Technology Conference
 3. Green, Simon (2012) [CUDA Particles](http://developer.download.nvidia.com/assets/cuda/files/particles.pdf), CUDA Toolkit Documentation. See also [here](https://docs.nvidia.com/cuda/cuda-samples/index.html#particles).
+4. Mount, David (2010), [ANN Programming Manual](http://www.cs.umd.edu/~mount/ANN/Files/1.1.2/ANNmanual_1.1.pdf)
