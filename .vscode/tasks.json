@@ -16,6 +16,25 @@
                 "-L${workspaceFolder}/ann_1.1.2/lib",
                 "-lANN"
             ],
+            "group": "build",
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Build fixed_radius_ann",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "${workspaceFolder}/src/fixed_radius_ann.cpp",
+                "-o${workspaceFolder}/bin/fixed_radius_ann",
+                "-O3",
+                "-Wall",
+                "-I${workspaceFolder}/ann_1.1.2/include",
+                "-L${workspaceFolder}/ann_1.1.2/lib",
+                "-lANN"
+            ],
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -24,6 +43,17 @@
                 "reveal": "silent"
             },
             "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Run tests",
+            "dependsOn": ["Build fixed_radius_ann"],
+            "type": "shell",
+            "command": "./scripts/test.sh",
+            "group": "test",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
         }
     ]
 }
