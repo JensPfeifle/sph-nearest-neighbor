@@ -23,12 +23,12 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "Build fixed_radius_ann",
+            "label": "Build fr_ann_query",
             "type": "shell",
             "command": "g++",
             "args": [
-                "${workspaceFolder}/src/fixed_radius_ann.cpp",
-                "-o${workspaceFolder}/bin/fixed_radius_ann",
+                "${workspaceFolder}/src/fr_ann_query.cpp",
+                "-o${workspaceFolder}/bin/fr_ann_query",
                 "-O3",
                 "-Wall",
                 "-I${workspaceFolder}/ann_1.1.2/include",
@@ -46,7 +46,9 @@
         },
         {
             "label": "Run tests",
-            "dependsOn": ["Build fixed_radius_ann"],
+            "dependsOn": [
+                "Build rf_ann_query"
+            ],
             "type": "shell",
             "command": "./scripts/test.sh",
             "group": "test",

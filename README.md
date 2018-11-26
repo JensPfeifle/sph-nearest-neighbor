@@ -26,8 +26,8 @@ For each point _p<sub>1</sub>_ within the computational domain (given in a list)
 ### Problem properties:
 - low-dimensional (2D/3D)
 - large N (~10e6 points)
-- static for time step, but dynamic over time
-- exact/approximate? FIXME
+- static (for a single time step)
+- exact
 
 Since the neighbors must be found for all points, we can use the fact that, if we know that _p<sub>b</sub>_ is a neighbor of _p<sub>a</sub>_ then _p<sub>a</sub>_ is also a neighbor of _p<sub>b</sub>_.   
 
