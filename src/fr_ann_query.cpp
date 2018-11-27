@@ -57,13 +57,14 @@ int main(int argc, char **argv)
 	cout << "Search radius: " << r << "\n";
 	const ANNdist rSq = r * r; // store squared search radius
 
-	cout << "Data Points:\n";
 	nDataPts = 0; // read data points
 	while (nDataPts < maxPts && readPt(*dataIn, dataPts[nDataPts]))
 	{
 		//printPt(cout, dataPts[nDataPts]);
 		nDataPts++;
 	}
+
+		cout << nDataPts <<" data points.\n";
 
 	kdTree = new ANNkd_tree( // build search structure
 		dataPts,			 // the data points

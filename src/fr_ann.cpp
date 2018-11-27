@@ -1,7 +1,10 @@
 #include <cstdlib> // C standard library
 #include <cstdio>  // C I/O (for sscanf)
 #include <cstring> // string manipulation
-#include <fstream>
+#include <fstream> // file io
+#include <vector>
+#include <numeric>   // std::iota
+#include <algorithm> // std::find
 #include <ANN/ANN.h>
 
 using namespace std;
@@ -15,8 +18,7 @@ int dim = 2;	   // dimension
 double eps = 0;	// error bound
 int maxPts = 1000; // maximum number of data points
 
-istream *dataIn = NULL;  // input for data points
-istream *queryIn = NULL; // input for query points
+istream *dataIn = NULL; // input for data points
 
 void getArgs(int argc, char **argv); // get command-line arguments
 
@@ -40,6 +42,22 @@ void printPt(ostream &out, ANNpoint p) // print point
 	out << ")\n";
 }
 
+int writeOutput(vector<int> &p1, vector<int> &p2) {
+	ofstream myfile;
+	myfile.open("interactionpairs.dat");
+	myfile << "\tp1\tp2"
+		 << "\n"
+		 << "\t===\t==="
+		 << "\n";
+	for (int i = 0; i < p1.size(); i++)
+	{
+		myfile << "\t" << p1[i] << "\t" << p2[i] << "\n";
+	}
+	myfile.close();
+	cout<< "\nInteraction pairs written to interactionpairs.dat\n";
+	return 0;
+}
+
 int main(int argc, char **argv)
 {
 	int nDataPts;		   // actual number of data points
@@ -49,6 +67,8 @@ int main(int argc, char **argv)
 	ANNdistArray dists;	// near neighbor distances
 	ANNkd_tree *kdTree;	// search structure
 
+	int nInteractionPairs; //number of interaction pairs
+
 	getArgs(argc, argv); // read command-line arguments
 
 	queryPt = annAllocPt(dim);			// allocate query point
@@ -57,45 +77,51 @@ int main(int argc, char **argv)
 	cout << "Search radius: " << r << "\n";
 	const ANNdist rSq = r * r; // store squared search radius
 
-	cout << "Data Points:\n";
 	nDataPts = 0; // read data points
 	while (nDataPts < maxPts && readPt(*dataIn, dataPts[nDataPts]))
 	{
 		//printPt(cout, dataPts[nDataPts]);
 		nDataPts++;
 	}
+	cout << nDataPts << " data points.\n";
 
 	kdTree = new ANNkd_tree( // build search structure
 		dataPts,			 // the data points
 		nDataPts,			 // number of points
 		dim);				 // dimension of space
 
-	while (readPt(*queryIn, queryPt))
-	{							 // read query points
-		cout << "Query point: "; // echo query point
+	nInteractionPairs = nDataPts;
+	vector<int> p1(nDataPts);
+	vector<int> p2(nDataPts);
+	iota(begin(p1), end(p1), 0); // fill p1 with indexes of all datapts
+	p2 = p1;					 // copy to p2 -> self-interaction
+
+	for (int i = 0; i < nDataPts; i++)
+	{
+		queryPt = dataPts[i];
+		const int queryPtIdx = i;
+		cout << "Query point [" << i << "]: "; // echo query point
 		printPt(cout, queryPt);
 
 		// run once to determine required k
 		const int nNeighbors = kdTree->annkFRSearch(
 			queryPt, // ANNpoint query point
 			rSq,	 // squared radius
-			k,		//number of near neighbors to return
+			k,		 //number of near neighbors to return
 			NULL,
 			NULL,
-			eps);		 
+			eps);
 
-		cout << "npoints: " << nNeighbors << "\n";
+		nnIdx = new ANNidx[nNeighbors];  // allocate nn indices
+		dists = new ANNdist[nNeighbors]; // allocate nn dists
 
-		nnIdx = new ANNidx[nNeighbors];  // allocate near neigh indices
-		dists = new ANNdist[nNeighbors]; // allocate near neighbor dists
-
-		kdTree->annkFRSearch( 			//run again to get neighbors
-			queryPt,		// ANNpoint query point
-			rSq,			// squared radius
-			nNeighbors,		// number of near neighbors
-			nnIdx,			// array  for indices
-			dists,			// array for distances
-			eps);			 
+		kdTree->annkFRSearch( //run again to get neighbors
+			queryPt,		  // ANNpoint query point
+			rSq,			  // squared radius
+			nNeighbors,		  // number of near neighbors
+			nnIdx,			  // array  for indices
+			dists,			  // array for distances
+			eps);
 
 		cout << "\tNN:\tIndex\tDistance\n";
 		for (int i = 0; i < nNeighbors; i++)
@@ -103,7 +129,48 @@ int main(int argc, char **argv)
 			dists[i] = sqrt(dists[i]); // unsquare distance
 			cout << "\t" << i << "\t" << nnIdx[i] << "\t" << dists[i] << "\n";
 		}
+
+		int qpIdx = i;
+		for (int n = 0; n < nNeighbors; n++) // loop over neighbors
+		{
+			//if (qpIdx != nnIdx[n]) // skip self interaction
+			//	{
+
+			bool interactionExists = false;
+			for (int c = 0; c < nInteractionPairs; c++) // loop over pairs
+			{
+				//cout << "compare:\t" << p1[c] << "<->" << nnIdx[n];
+				//cout << "\t\t" << p2[c] << "<->" << qpIdx << "\n";
+				if (p1[c] == nnIdx[n] && p2[c] == qpIdx)
+				{
+					cout << "interaction " << p1[c] << "<->" << p2[c] << "exists."
+						 << "\n";
+					interactionExists = true;
+					break;
+				}
+			}
+			if (!interactionExists)
+			{
+				cout << " adding interaction " << qpIdx << "<->" << nnIdx[n] << "\n";
+				p1.insert(p1.end(), qpIdx);
+				p2.insert(p2.end(), nnIdx[n]);
+				nInteractionPairs++;
+				//copy(array1, array1 + 3, std::back_inserter(v));	// insert at end
+				//int tmp[] = {1000};
+				//copy(tmp, tmp+1, std::inserter(p1, p1.begin()+2));	// insert at begin+2
+				//copy(tmp, tmp+1, std::inserter(p2, p2.begin()+2));	// insert at begin+2
+			}
+			//	}
+		}
 	}
+
+	if (p1.size() != p2.size())
+	{
+		cout << "p1 and p2 are not of same size!";
+		exit(1);
+	}
+	writeOutput(p1,p2);
+
 	delete[] nnIdx; // clean things up
 	delete[] dists;
 	delete kdTree;
@@ -128,7 +195,6 @@ void getArgs(int argc, char **argv)
 			 << "    m        maximum number of data points (default = 1000)\n"
 			 << "    k        number of nearest neighbors per query (default 1)\n"
 			 << "    eps      the error bound (default = 0.0)\n"
-			 << "    query    name of file containing query points (default = data)\n"
 			 << "    data     name of file containing data points\n"
 			 << "    radius   radius of of query\n"
 			 << "\n"
@@ -170,16 +236,6 @@ void getArgs(int argc, char **argv)
 				exit(1);
 			}
 			dataIn = &dataStream; // make this the data stream
-		}
-		else if (!strcmp(argv[i], "-qf"))
-		{										  // -qf option
-			queryStream.open(argv[++i], ios::in); // open query file
-			if (!queryStream)
-			{
-				cerr << "Cannot open query file\n";
-				exit(1);
-			}
-			queryIn = &queryStream; // make this query stream
 		}
 		else
 		{ // illegal syntax

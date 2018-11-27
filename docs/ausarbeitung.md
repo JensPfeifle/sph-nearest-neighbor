@@ -1,7 +1,9 @@
 ## Inhalt
 1. Recherche
     1. Problembeschreibung
-    2. Mindmap
+    2. Verfahren
+        1.  Mindmap
+        2.  https://scikit-learn.org/stable/modules/neighbors.html
     3. Wieso ANN?
 
 2. Vorgehen

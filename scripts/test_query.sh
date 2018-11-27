@@ -2,23 +2,23 @@
 
 mkdir -p ./test
 
-rm -rf ./test/*
-
-cp ./scripts/*.py        ./test/
-cp ./bin/fr_ann          ./test/fr_ann
+cp ./scripts/*.py                    ./test/
+cp ./bin/fr_ann_query           ./test/fr_ann_query
 
 cd ./test
 python3 generate_test_points.py
 
 echo "===================================================="
-echo "2D fixed radius search, all neighbors"
+echo "2D fixed radius search"
 echo "===================================================="
-./fr_ann \
+./fr_ann_query \
     -d 2 \
     -nn 50 \
     -e 0.0 \
+    -qf query.pts \
     -df data.pts \
     -r 0.0003 \
-    > result.dat
+    > result_query.dat
 
-echo "output written to result.dat"
+python3 plot_2d.py
+

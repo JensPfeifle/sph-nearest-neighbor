@@ -35,6 +35,38 @@
                 "-L${workspaceFolder}/ann_1.1.2/lib",
                 "-lANN"
             ],
+            "group": "build",
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Test rf_ann_query",
+            "dependsOn": [
+                "Build rf_ann_query"
+            ],
+            "type": "shell",
+            "command": "./scripts/test_query.sh",
+            "group": "test",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Build fr_ann",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "${workspaceFolder}/src/fr_ann.cpp",
+                "-o${workspaceFolder}/bin/fr_ann",
+                "-O3",
+                "-Wall",
+                "-I${workspaceFolder}/ann_1.1.2/include",
+                "-L${workspaceFolder}/ann_1.1.2/lib",
+                "-lANN"
+            ],
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -45,9 +77,9 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "Run tests",
+            "label": "Test fr_ann",
             "dependsOn": [
-                "Build rf_ann_query"
+                "Build fr_ann"
             ],
             "type": "shell",
             "command": "./scripts/test.sh",
