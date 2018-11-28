@@ -18,9 +18,12 @@ echo "==================="
 cd ./test
 python3 generate_test_points_3d.py
 
+echo "Running fra_ann.."
+
+time \
 ./fr_ann \
     -d 3 \
-    -max 10000 \
+    -max 5000 \
     -nn 50 \
     -e 0.0 \
     -df data.pts \
