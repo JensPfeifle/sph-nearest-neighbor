@@ -42,19 +42,20 @@ void printPt(ostream &out, ANNpoint p) // print point
 	out << ")\n";
 }
 
-int writeOutput(vector<int> &p1, vector<int> &p2) {
+int writeOutput(vector<int> &p1, vector<int> &p2)
+{
 	ofstream myfile;
 	myfile.open("interactionpairs.dat");
 	myfile << "\tp1\tp2"
-		 << "\n"
-		 << "\t===\t==="
-		 << "\n";
+		   << "\n"
+		   << "\t===\t==="
+		   << "\n";
 	for (int i = 0; i < p1.size(); i++)
 	{
 		myfile << "\t" << p1[i] << "\t" << p2[i] << "\n";
 	}
 	myfile.close();
-	cout<< "\nInteraction pairs written to interactionpairs.dat\n";
+	cout << "\nInteraction pairs written to interactionpairs.dat\n";
 	return 0;
 }
 
@@ -127,23 +128,39 @@ int main(int argc, char **argv)
 		for (int i = 0; i < nNeighbors; i++)
 		{							   // print summary
 			dists[i] = sqrt(dists[i]); // unsquare distance
-			cout << "\t" << i << "\t" << nnIdx[i] << "\t" << dists[i] << "\n";
+			cout << "\t" << i << "\t" << nnIdx[i] << "\t" << dists[i]
+				 << "\n";
 		}
 
-		int qpIdx = i;
 		for (int n = 0; n < nNeighbors; n++) // loop over neighbors
 		{
-			//if (qpIdx != nnIdx[n]) // skip self interaction
-			//	{
+			if (queryPtIdx == nnIdx[n])
+			{
+				continue; // skip self interaction
+			}
 
 			bool interactionExists = false;
-			for (int c = 0; c < nInteractionPairs; c++) // loop over pairs
+			vector<int>::size_type search_begin;
+			vector<int>::size_type search_end;
+
+			const vector<int>::const_iterator pos_cur = std::find(p1.begin(), p1.end(), nnIdx[n]);
+			const vector<int>::const_iterator pos_next = std::find(p1.begin(), p1.end(), nnIdx[n] + 1);
+			if (pos_cur != p1.end())
 			{
-				//cout << "compare:\t" << p1[c] << "<->" << nnIdx[n];
-				//cout << "\t\t" << p2[c] << "<->" << qpIdx << "\n";
-				if (p1[c] == nnIdx[n] && p2[c] == qpIdx)
+				search_begin = pos_cur - p1.begin();
+				search_end = pos_next - p1.begin();
+			}
+
+			cout << " current subset of interactions to search: [" << search_begin << ":" << search_end << ")\n";
+			cout << "  contain indexes between: [" << *pos_cur << ":" << *pos_next << ")\n";
+
+			for (int s = search_begin; s < search_end; s++) // loop over pairs
+			{	
+				cout << "compare:\t" << p1[s] << "<->" << nnIdx[n];
+				cout << "\t\t" << p2[s] << "<->" << queryPtIdx << "\n";
+				if (p1[s] == nnIdx[n] && p2[s] == queryPtIdx)
 				{
-					cout << "interaction " << p1[c] << "<->" << p2[c] << "exists."
+					cout << "interaction " << p1[s] << "<->" << p2[s] << "exists."
 						 << "\n";
 					interactionExists = true;
 					break;
@@ -151,16 +168,18 @@ int main(int argc, char **argv)
 			}
 			if (!interactionExists)
 			{
-				cout << " adding interaction " << qpIdx << "<->" << nnIdx[n] << "\n";
-				p1.insert(p1.end(), qpIdx);
-				p2.insert(p2.end(), nnIdx[n]);
+				cout << " adding interaction " << queryPtIdx << "<->" << nnIdx[n]
+					 << "\n";
+				auto pos_insert = std::find(p1.begin(), p1.end(), queryPtIdx+1);
+				auto pos_insert_idx = pos_insert - p1.begin();
+				p1.insert(pos_insert, queryPtIdx);
+				p2.insert(p2.begin() + pos_insert_idx, nnIdx[n]);
 				nInteractionPairs++;
 				//copy(array1, array1 + 3, std::back_inserter(v));	// insert at end
 				//int tmp[] = {1000};
 				//copy(tmp, tmp+1, std::inserter(p1, p1.begin()+2));	// insert at begin+2
 				//copy(tmp, tmp+1, std::inserter(p2, p2.begin()+2));	// insert at begin+2
 			}
-			//	}
 		}
 	}
 
@@ -169,7 +188,7 @@ int main(int argc, char **argv)
 		cout << "p1 and p2 are not of same size!";
 		exit(1);
 	}
-	writeOutput(p1,p2);
+	writeOutput(p1, p2);
 
 	delete[] nnIdx; // clean things up
 	delete[] dists;
