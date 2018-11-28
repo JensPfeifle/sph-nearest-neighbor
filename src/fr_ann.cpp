@@ -101,8 +101,8 @@ int main(int argc, char **argv)
 	{
 		queryPt = dataPts[i];
 		const int queryPtIdx = i;
-		cout << "Query point [" << i << "]: "; // echo query point
-		printPt(cout, queryPt);
+		//cout << "Query point [" << i << "]: "; // echo query point
+		//printPt(cout, queryPt);
 
 		// run once to determine required k
 		const int nNeighbors = kdTree->annkFRSearch(
@@ -124,11 +124,11 @@ int main(int argc, char **argv)
 			dists,			  // array for distances
 			eps);
 
-		cout << "\tNN:\tIndex\tDistance\n";
+		//cout << "\tNN:\tIndex\tDistance\n";
 		for (int i = 0; i < nNeighbors; i++)
 		{							   // print summary
 			dists[i] = sqrt(dists[i]); // unsquare distance
-			cout << "\t" << i << "\t" << nnIdx[i] << "\t" << dists[i] << "\n";
+			//cout << "\t" << i << "\t" << nnIdx[i] << "\t" << dists[i] << "\n";
 		}
 
 		int qpIdx = i;
@@ -143,15 +143,15 @@ int main(int argc, char **argv)
 					// compare p1/p2 to current neighbor and query point
 					if (p1[c] == nnIdx[n] && p2[c] == qpIdx) 
 					{
-						cout << "interaction " << p1[c] << "<->" << p2[c] << "exists."
-							 << "\n";
+						//cout << "interaction " << p1[c] << "<->" << p2[c] << "exists."
+						//	 << "\n";
 						interactionExists = true;
 						break;
 					}
 				}
 				if (!interactionExists)
 				{
-					cout << " adding interaction " << qpIdx << "<->" << nnIdx[n] << "\n";
+					//cout << " adding interaction " << qpIdx << "<->" << nnIdx[n] << "\n";
 					p1.insert(p1.end(), qpIdx);
 					p2.insert(p2.end(), nnIdx[n]);
 					nInteractionPairs++;
