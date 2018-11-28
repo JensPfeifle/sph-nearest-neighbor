@@ -42,19 +42,20 @@ void printPt(ostream &out, ANNpoint p) // print point
 	out << ")\n";
 }
 
-int writeOutput(vector<int> &p1, vector<int> &p2) {
+int writeOutput(vector<int> &p1, vector<int> &p2)
+{
 	ofstream myfile;
 	myfile.open("interactionpairs.dat");
 	myfile << "\tp1\tp2"
-		 << "\n"
-		 << "\t===\t==="
-		 << "\n";
+		   << "\n"
+		   << "\t===\t==="
+		   << "\n";
 	for (int i = 0; i < p1.size(); i++)
 	{
 		myfile << "\t" << p1[i] << "\t" << p2[i] << "\n";
 	}
 	myfile.close();
-	cout<< "\nInteraction pairs written to interactionpairs.dat\n";
+	cout << "\nInteraction pairs written to interactionpairs.dat\n";
 	return 0;
 }
 
@@ -133,34 +134,29 @@ int main(int argc, char **argv)
 		int qpIdx = i;
 		for (int n = 0; n < nNeighbors; n++) // loop over neighbors
 		{
-			//if (qpIdx != nnIdx[n]) // skip self interaction
-			//	{
-
-			bool interactionExists = false;
-			for (int c = 0; c < nInteractionPairs; c++) // loop over pairs
+			if (qpIdx != nnIdx[n]) // skip self interaction
 			{
-				//cout << "compare:\t" << p1[c] << "<->" << nnIdx[n];
-				//cout << "\t\t" << p2[c] << "<->" << qpIdx << "\n";
-				if (p1[c] == nnIdx[n] && p2[c] == qpIdx)
+
+				bool interactionExists = false;
+				for (int c = 0; c < nInteractionPairs; c++) // loop over pairs
 				{
-					cout << "interaction " << p1[c] << "<->" << p2[c] << "exists."
-						 << "\n";
-					interactionExists = true;
-					break;
+					// compare p1/p2 to current neighbor and query point
+					if (p1[c] == nnIdx[n] && p2[c] == qpIdx) 
+					{
+						cout << "interaction " << p1[c] << "<->" << p2[c] << "exists."
+							 << "\n";
+						interactionExists = true;
+						break;
+					}
+				}
+				if (!interactionExists)
+				{
+					cout << " adding interaction " << qpIdx << "<->" << nnIdx[n] << "\n";
+					p1.insert(p1.end(), qpIdx);
+					p2.insert(p2.end(), nnIdx[n]);
+					nInteractionPairs++;
 				}
 			}
-			if (!interactionExists)
-			{
-				cout << " adding interaction " << qpIdx << "<->" << nnIdx[n] << "\n";
-				p1.insert(p1.end(), qpIdx);
-				p2.insert(p2.end(), nnIdx[n]);
-				nInteractionPairs++;
-				//copy(array1, array1 + 3, std::back_inserter(v));	// insert at end
-				//int tmp[] = {1000};
-				//copy(tmp, tmp+1, std::inserter(p1, p1.begin()+2));	// insert at begin+2
-				//copy(tmp, tmp+1, std::inserter(p2, p2.begin()+2));	// insert at begin+2
-			}
-			//	}
 		}
 	}
 
@@ -169,7 +165,7 @@ int main(int argc, char **argv)
 		cout << "p1 and p2 are not of same size!";
 		exit(1);
 	}
-	writeOutput(p1,p2);
+	writeOutput(p1, p2);
 
 	delete[] nnIdx; // clean things up
 	delete[] dists;
