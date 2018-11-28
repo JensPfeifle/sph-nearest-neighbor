@@ -101,8 +101,8 @@ int main(int argc, char **argv)
 	{
 		queryPt = dataPts[i];
 		const int queryPtIdx = i;
-		cout << "Query point [" << i << "]: "; // echo query point
-		printPt(cout, queryPt);
+		//cout << "Query point [" << i << "]: "; // echo query point
+		//printPt(cout, queryPt);
 
 		// run once to determine required k
 		const int nNeighbors = kdTree->annkFRSearch(
@@ -124,13 +124,18 @@ int main(int argc, char **argv)
 			dists,			  // array for distances
 			eps);
 
-		cout << "\tNN:\tIndex\tDistance\n";
+		//cout << "\tNN:\tIndex\tDistance\n";
 		for (int i = 0; i < nNeighbors; i++)
 		{							   // print summary
 			dists[i] = sqrt(dists[i]); // unsquare distance
-			cout << "\t" << i << "\t" << nnIdx[i] << "\t" << dists[i]
-				 << "\n";
+			//cout << "\t" << i << "\t" << nnIdx[i] << "\t" << dists[i]
+			//	 << "\n";
 		}
+
+		vector<int>::const_iterator pos_cur;
+		vector<int>::const_iterator pos_next;
+		vector<int>::size_type search_begin;
+		vector<int>::size_type search_end;
 
 		for (int n = 0; n < nNeighbors; n++) // loop over neighbors
 		{
@@ -140,36 +145,35 @@ int main(int argc, char **argv)
 			}
 
 			bool interactionExists = false;
-			vector<int>::size_type search_begin;
-			vector<int>::size_type search_end;
+			
+			pos_cur = std::find(p1.begin(), p1.end(), nnIdx[n]);
+			pos_next = std::find(p1.begin(), p1.end(), nnIdx[n] + 1);
 
-			const vector<int>::const_iterator pos_cur = std::find(p1.begin(), p1.end(), nnIdx[n]);
-			const vector<int>::const_iterator pos_next = std::find(p1.begin(), p1.end(), nnIdx[n] + 1);
 			if (pos_cur != p1.end())
 			{
 				search_begin = pos_cur - p1.begin();
 				search_end = pos_next - p1.begin();
 			}
 
-			cout << " current subset of interactions to search: [" << search_begin << ":" << search_end << ")\n";
-			cout << "  contain indexes between: [" << *pos_cur << ":" << *pos_next << ")\n";
+			//cout << " current subset of interactions to search: [" << search_begin << ":" << search_end << ")\n";
+			//cout << "  contain indexes between: [" << *pos_cur << ":" << *pos_next << ")\n";
 
 			for (int s = search_begin; s < search_end; s++) // loop over pairs
 			{	
-				cout << "compare:\t" << p1[s] << "<->" << nnIdx[n];
-				cout << "\t\t" << p2[s] << "<->" << queryPtIdx << "\n";
+				//cout << "compare:\t" << p1[s] << "<->" << nnIdx[n];
+				//cout << "\t\t" << p2[s] << "<->" << queryPtIdx << "\n";
 				if (p1[s] == nnIdx[n] && p2[s] == queryPtIdx)
 				{
-					cout << "interaction " << p1[s] << "<->" << p2[s] << "exists."
-						 << "\n";
+					//cout << "interaction " << p1[s] << "<->" << p2[s] << "exists."
+					//	 << "\n";
 					interactionExists = true;
 					break;
 				}
 			}
 			if (!interactionExists)
 			{
-				cout << " adding interaction " << queryPtIdx << "<->" << nnIdx[n]
-					 << "\n";
+				//cout << " adding interaction " << queryPtIdx << "<->" << nnIdx[n]
+				//	 << "\n";
 				auto pos_insert = std::find(p1.begin(), p1.end(), queryPtIdx+1);
 				auto pos_insert_idx = pos_insert - p1.begin();
 				p1.insert(pos_insert, queryPtIdx);
