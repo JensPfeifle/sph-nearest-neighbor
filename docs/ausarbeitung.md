@@ -14,3 +14,7 @@
 ## Outlook
 * update kdtree instead of re-calculating (-> "dynamic" search)
 * test approximate search methods
+
+
+## Lessons learned
+* Achtung, wenn rf_ann die falsche dimension bekommt merk man das nicht! Es wird beim einlesen nicht zw. tabs und newlines unterschieden.

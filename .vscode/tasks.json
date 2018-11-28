@@ -42,19 +42,6 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "Test rf_ann_query",
-            "dependsOn": [
-                "Build rf_ann_query"
-            ],
-            "type": "shell",
-            "command": "./scripts/test_query.sh",
-            "group": "test",
-            "presentation": {
-                "reveal": "always",
-                "panel": "new"
-            }
-        },
-        {
             "label": "Build fr_ann",
             "type": "shell",
             "command": "g++",
@@ -77,12 +64,27 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "Test fr_ann",
+            "label": "Test 3D",
             "dependsOn": [
-                "Build fr_ann"
+                "Build fr_ann",
+                "Build fr_ann_query"
             ],
             "type": "shell",
-            "command": "./scripts/test.sh",
+            "command": "./scripts/test_3d.sh",
+            "group": "test",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        }
+        {
+            "label": "Test 2D",
+            "dependsOn": [
+                "Build fr_ann",
+                "Build fr_ann_query"
+            ],
+            "type": "shell",
+            "command": "./scripts/test_2d.sh",
             "group": "test",
             "presentation": {
                 "reveal": "always",
