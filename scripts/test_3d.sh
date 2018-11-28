@@ -4,7 +4,11 @@ mkdir -p ./test
 
 rm -rf ./test/*
 
-cp ./scripts/*.py             ./test
+files="config.py generate_test_points_3d.py plot_3d.py"
+for file in $files; do
+    cp ./scripts/${file}             ./test
+done
+
 cp ./bin/*                    ./test
 
 echo "==================="
