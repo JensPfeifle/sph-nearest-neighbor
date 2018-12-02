@@ -1,3 +1,4 @@
+#!/bin/bash
 # pwd = /home/jens/git/sph-nearest-neighbor
 
 mkdir -p ./test
