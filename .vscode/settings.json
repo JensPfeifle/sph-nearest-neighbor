@@ -27,7 +27,6 @@
         "istream": "cpp",
         "limits": "cpp",
         "numeric": "cpp",
-        "ratio": "cpp",
         "sstream": "cpp",
         "stdexcept": "cpp",
         "streambuf": "cpp",

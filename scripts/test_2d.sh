@@ -20,7 +20,7 @@ cd ./test
 python3 generate_test_points.py
 
 ./fr_ann \
-    -d 2 \ 
+    -d 2 \
     -max 10000 \
     -nn 50 \
     -e 0.0 \

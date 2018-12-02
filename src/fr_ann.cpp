@@ -11,6 +11,13 @@
 using namespace std;
 
 //----------------------------------------------------------------------
+//	Set approach for processing of interactions
+// 0: naive (double for loop) search
+// 1: sorted search
+//----------------------------------------------------------------------
+#define INTERACTIONLISTMETHOD 0
+
+//----------------------------------------------------------------------
 //	Parameters that are set in getArgs()
 //----------------------------------------------------------------------
 double r = 0.0;	// radius of search
@@ -22,6 +29,8 @@ int maxPts = 1000; // maximum number of data points
 istream *dataIn = NULL; // input for data points
 
 void getArgs(int argc, char **argv); // get command-line arguments
+bool check_interaction_exists(vector<int> &p1, vector<int> &p2,
+							  int &nInteractionPairs, const int qpIdx, const int nnIdx);
 
 bool readPt(istream &in, ANNpoint p) // read point (false on EOF)
 {
@@ -67,7 +76,7 @@ int main(int argc, char **argv)
 	ANNpoint queryPt;	  // query point
 	ANNidxArray nnIdx;	 // near neighbor indices
 	ANNdistArray dists;	// near neighbor distances
-	ANNkd_tree *kdTree;	// search structure
+	ANNkd_tree *kdTree;	// searchSORTEDSEARCH structure
 
 	int nInteractionPairs; //number of interaction pairs
 
@@ -105,7 +114,7 @@ int main(int argc, char **argv)
 	for (int i = 0; i < nDataPts; i++)
 	{
 		// Record start time
-    	auto start = std::chrono::high_resolution_clock::now();
+		auto start = std::chrono::high_resolution_clock::now();
 
 		queryPt = dataPts[i];
 		const int queryPtIdx = i;
@@ -140,40 +149,24 @@ int main(int argc, char **argv)
 		for (int i = 0; i < nNeighbors; i++)
 		{							   // print summary
 			dists[i] = sqrt(dists[i]); // unsquare distance
-			//cout << "\t" << i << "\t" << nnIdx[i] << "\t" << dists[i] << "\n";
+									   //cout << "\t" << i << "\t" << nnIdx[i] << "\t" << dists[i] << "\n";
 		}
 
 		finish = std::chrono::high_resolution_clock::now();
 		frSearch_total = frSearch_total + (finish - start);
 		start = std::chrono::high_resolution_clock::now();
 
-
 		int qpIdx = i;
+		//cout << "\t" << i << "\t" << nnIdx[i] << "\t" << dists[i]
+		//	 << "\n";
+
 		for (int n = 0; n < nNeighbors; n++) // loop over neighbors
 		{
-			if (qpIdx != nnIdx[n]) // skip self interaction
+			if (queryPtIdx == nnIdx[n])
 			{
-
-				bool interactionExists = false;
-				for (int c = 0; c < nInteractionPairs; c++) // loop over pairs
-				{
-					// compare p1/p2 to current neighbor and query point
-					if (p1[c] == nnIdx[n] && p2[c] == qpIdx) 
-					{
-						//cout << "interaction " << p1[c] << "<->" << p2[c] << "exists."
-						//	 << "\n";
-						interactionExists = true;
-						break;
-					}
-				}
-				if (!interactionExists)
-				{
-					//cout << " adding interaction " << qpIdx << "<->" << nnIdx[n] << "\n";
-					p1.insert(p1.end(), qpIdx);
-					p2.insert(p2.end(), nnIdx[n]);
-					nInteractionPairs++;
-				}
+				continue; // skip self interaction
 			}
+			check_interaction_exists(p1, p2, nInteractionPairs, queryPtIdx, nnIdx[n]);
 		}
 		finish = std::chrono::high_resolution_clock::now();
 		listBuild_total = listBuild_total + (finish - start);
@@ -199,6 +192,85 @@ int main(int argc, char **argv)
 	annClose(); // done with ANN
 
 	return EXIT_SUCCESS;
+}
+
+bool check_interaction_exists(vector<int> &p1, vector<int> &p2, int &nInteractionPairs, const int qpIdx, const int nnIdx)
+{
+#ifndef INTERACTIONLISTMETHOD
+	cout << "Method for interaction list generation not specified. Please define INTERACTIONLISTMETHOD.";
+	exit(1);
+#endif
+
+	if (INTERACTIONLISTMETHOD == 0)
+	{
+
+		bool interactionExists = false;
+		vector<int>::const_iterator pos_cur = std::find(p1.begin(), p1.end(), nnIdx);
+		vector<int>::const_iterator pos_next = std::find(p1.begin(), p1.end(), nnIdx + 1);
+		vector<int>::size_type search_begin;
+		vector<int>::size_type search_end;
+
+		if (pos_cur != p1.end())
+		{
+			search_begin = pos_cur - p1.begin();
+			search_end = pos_next - p1.begin();
+		}
+
+		//cout << " current subset of interactions to search: [" << search_begin << ":" << search_end << ")\n";
+		//cout << "  contain indexes between: [" << *pos_cur << ":" << *pos_next << ")\n";
+
+		for (int s = search_begin; s < search_end; s++) // loop over pairs
+		{
+			//cout << "compare:\t" << p1[s] << "<->" << nnIdx[n];
+			//cout << "\t\t" << p2[s] << "<->" << queryPtIdx << "\n";
+			if (p1[s] == nnIdx && p2[s] == qpIdx)
+			{
+				//cout << "interaction " << p1[s] << "<->" << p2[s] << "exists."
+				//	 << "\n";
+				interactionExists = true;
+				break;
+			}
+		}
+		if (!interactionExists)
+		{
+			//cout << " adding interaction " << queryPtIdx << "<->" << nnIdx[n]
+			//	 << "\n";
+			auto pos_insert = std::find(p1.begin(), p1.end(), qpIdx + 1);
+			auto pos_insert_idx = pos_insert - p1.begin();
+			p1.insert(pos_insert, qpIdx);
+			p2.insert(p2.begin() + pos_insert_idx, nnIdx);
+			nInteractionPairs++;
+			//copy(array1, array1 + 3, std::back_inserter(v));	// insert at end
+			//int tmp[] = {1000};
+			//copy(tmp, tmp+1, std::inserter(p1, p1.begin()+2));	// insert at begin+2
+			//copy(tmp, tmp+1, std::inserter(p2, p2.begin()+2));	// insert at begin+2
+		}
+	}
+	else if (INTERACTIONLISTMETHOD == 1)
+	{
+		bool interactionExists = false;
+		for (int c = 0; c < nInteractionPairs; c++) // loop over pairs
+		{
+			// compare p1/p2 to current neighbor and query point
+			if (p1[c] == nnIdx && p2[c] == qpIdx)
+			{
+				//cout << "interaction " << p1[c] << "<->" << p2[c] << "exists."
+				//	 << "\n";
+				interactionExists = true;
+				break;
+			}
+		}
+		if (!interactionExists)
+		{
+			//cout << " adding interaction " << qpIdx << "<->" << nnIdx[n] << "\n";
+			p1.insert(p1.end(), qpIdx);
+			p2.insert(p2.end(), nnIdx);
+			nInteractionPairs++;
+		}
+	}
+	else {
+		cout<<"Interaction list method "<<INTERACTIONLISTMETHOD<<"does not exist.";
+	}
 }
 
 void getArgs(int argc, char **argv)
