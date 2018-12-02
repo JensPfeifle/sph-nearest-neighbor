@@ -11,6 +11,10 @@
     2. Test mit einem/vordefinierten query points (fixed_radius_ann.cpp)
     3. 
 
+## Testfälle
+
+
+
 ## Outlook
 * update kdtree instead of re-calculating (-> "dynamic" search)
 * test approximate search methods
