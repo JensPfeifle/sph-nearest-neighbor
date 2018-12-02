@@ -3,6 +3,9 @@ import matplotlib.pyplot as plt
 from typing import List, Tuple
 import random
 import config as CONF
+import csv
+import datetime
+from pathlib import Path
 
 
 def make_cluster(center: tuple,
@@ -41,7 +44,8 @@ def write_file(x: [], y: [], z: [], filename='output.txt'):
     assert (len(x) == len(y) == len(z))
     with open(filename, 'w') as f:
         for n in range(len(x)):
-            f.write("{:.12f}{}{:.12f}{}{:.12f}\n".format(x[n], TAB, y[n],TAB, z[n]))
+            f.write("{:.12f}{}{:.12f}{}{:.12f}\n".format(
+                x[n], TAB, y[n], TAB, z[n]))
 
 
 def write_datafile(data_x, data_y, data_z):
@@ -54,13 +58,13 @@ def write_queryfile(query_x, query_y, data_z):
 
 if __name__ == "__main__":
 
-    center = (3.5e-3, 7e-3,3e-3)
+    center = (3.5e-3, 7e-3, 3e-3)
     delta_x = 1e-3
     delta_y = 1.3e-3
     delta_z = 1.3e-3
     x, y, z = make_cluster(center=center,
                            delta_x=delta_x,
-                           delta_y=delta_y, 
+                           delta_y=delta_y,
                            delta_z=delta_z,
                            particle_spacing=CONF.dx)
     data_x = x
@@ -73,7 +77,7 @@ if __name__ == "__main__":
     delta_z = 1.3e-3
     x, y, z = make_cluster(center=center,
                            delta_x=delta_x,
-                           delta_y=delta_y, 
+                           delta_y=delta_y,
                            delta_z=delta_z,
                            particle_spacing=CONF.dx)
     data_x = np.append(data_x, x)
@@ -86,22 +90,29 @@ if __name__ == "__main__":
     delta_z = 1.3e-3
     x, y, z = make_cluster(center=center,
                            delta_x=delta_x,
-                           delta_y=delta_y, 
+                           delta_y=delta_y,
                            delta_z=delta_z,
                            particle_spacing=CONF.dx)
     data_x = np.append(data_x, x)
     data_y = np.append(data_y, y)
     data_z = np.append(data_z, z)
 
-
     write_datafile(data_x, data_y, data_z)
     print("Wrote {} data points.".format(len(data_x)))
 
-    ###
-    # select a random query point
-    n = random.randint(0, len(data_x)-1)
-    query_x = [data_x[n]]
-    query_y = [data_y[n]]
-    query_z = [data_z[n]]
-    write_queryfile(query_x, query_y, query_z)
-    print("Wrote {} query points.".format(len(query_x)))
+    ndatapts = len(data_x)
+    filltype = "cluster"
+    fill = "unkown"
+    # write statistics
+
+    statsfilepath = Path("./stats.csv")
+    if not statsfilepath.is_file():
+        with open(statsfilepath, 'w') as f:
+            f.write('time, sizex, sizey, sizez, filltype, fill, ndatapts, '
+                + 'ttotal, tksearch, tfrsearch, tprocessing, tstats, ' 
+                + 'nnmin, nnmax, nnavg, dmin, dmax, davg\n')
+    with open(statsfilepath, 'a') as f:
+        time = datetime.datetime.now().isoformat()
+        data = [time, CONF.Lx, CONF.Ly, CONF.Lz, filltype, fill, ndatapts]
+        datastr = ",".join([str(d) for d in data]) 
+        f.write(datastr +",")

@@ -39,6 +39,7 @@
         "new": "cpp",
         "optional": "cpp",
         "string_view": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "ratio": "cpp"
     }
 }

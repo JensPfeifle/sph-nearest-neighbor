@@ -7,6 +7,7 @@
 #include <algorithm> // std::find
 #include <ANN/ANN.h>
 #include <chrono>
+#include <cassert>
 
 using namespace std;
 
@@ -54,7 +55,7 @@ void printPt(ostream &out, ANNpoint p) // print point
 
 int writeOutput(vector<int> &p1, vector<int> &p2)
 {
-	ofstream myfile;
+	std::ofstream myfile;
 	myfile.open("interactionpairs.dat");
 	myfile << "\tp1\tp2"
 		   << "\n"
@@ -65,7 +66,19 @@ int writeOutput(vector<int> &p1, vector<int> &p2)
 		myfile << "\t" << p1[i] << "\t" << p2[i] << "\n";
 	}
 	myfile.close();
-	cout << "\nInteraction pairs written to interactionpairs.dat\n";
+	return 0;
+}
+
+int writeStats(const double data[], const int numstats)
+{
+	fstream myfile;
+	myfile.open("stats.csv", std::ios_base::app);
+	for (int i = 0; i < numstats; i++)
+	{
+		myfile << data[i] << ",";
+	}
+	myfile << "\n";
+	myfile.close();
 	return 0;
 }
 
@@ -80,12 +93,14 @@ int main(int argc, char **argv)
 
 	int nInteractionPairs; //number of interaction pairs
 
+	auto total_start = std::chrono::high_resolution_clock::now();
+
 	getArgs(argc, argv); // read command-line arguments
 
 	queryPt = annAllocPt(dim);			// allocate query point
 	dataPts = annAllocPts(maxPts, dim); // allocate data points
 
-	cout << "Search radius: " << r << "\n";
+	//cout << "Search radius: " << r << "\n";
 	const ANNdist rSq = r * r; // store squared search radius
 
 	nDataPts = 0; // read data points
@@ -94,7 +109,7 @@ int main(int argc, char **argv)
 		//printPt(cout, dataPts[nDataPts]);
 		nDataPts++;
 	}
-	cout << nDataPts << " data points.\n";
+	//cout << nDataPts << " data points.\n";
 
 	kdTree = new ANNkd_tree( // build search structure
 		dataPts,			 // the data points
@@ -170,21 +185,21 @@ int main(int argc, char **argv)
 		}
 		finish = std::chrono::high_resolution_clock::now();
 		listBuild_total = listBuild_total + (finish - start);
-		start = std::chrono::high_resolution_clock::now();
 	}
 
-	std::cout << "k search: \t" << kSearch_total.count() << " s\n";
-	std::cout << "fr search: \t" << frSearch_total.count() << " s\n";
-	std::cout << "p1p2 lists: \t" << listBuild_total.count() << " s\n";
+	auto total_finish = std::chrono::high_resolution_clock::now();
+	std::chrono::duration<double> total = (total_finish - total_start);
+	double ttotal = total.count();
+	double tksearch = kSearch_total.count();
+	double tfrsearch = frSearch_total.count();
+	double tprocessing = listBuild_total.count();
 
-	//include cassert
-	//assert (pi1.size() == p2.size())
-	if (p1.size() != p2.size())
-	{
-		cout << "p1 and p2 are not of same size!";
-		exit(1);
-	}
+	assert(p1.size() == p2.size());
 	writeOutput(p1, p2);
+
+	const int numstats = 4;
+	double stats[numstats] = {ttotal, tksearch, tfrsearch, tprocessing};
+	writeStats(stats, numstats);
 
 	delete[] nnIdx; // clean things up
 	delete[] dists;
@@ -198,7 +213,7 @@ bool check_interaction_exists(vector<int> &p1, vector<int> &p2, int &nInteractio
 {
 #ifndef INTERACTIONLISTMETHOD
 	cout << "Method for interaction list generation not specified. Please define INTERACTIONLISTMETHOD.";
-	exit(1);
+	exit(EXIT_FAILURE);
 #endif
 
 	if (INTERACTIONLISTMETHOD == 0)
@@ -268,8 +283,9 @@ bool check_interaction_exists(vector<int> &p1, vector<int> &p2, int &nInteractio
 			nInteractionPairs++;
 		}
 	}
-	else {
-		cout<<"Interaction list method "<<INTERACTIONLISTMETHOD<<"does not exist.";
+	else
+	{
+		cout << "Interaction list method " << INTERACTIONLISTMETHOD << "does not exist.";
 	}
 }
 
