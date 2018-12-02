@@ -6,6 +6,7 @@
 #include <numeric>   // std::iota
 #include <algorithm> // std::find
 #include <ANN/ANN.h>
+#include <chrono>
 
 using namespace std;
 
@@ -97,8 +98,15 @@ int main(int argc, char **argv)
 	iota(begin(p1), end(p1), 0); // fill p1 with indexes of all datapts
 	p2 = p1;					 // copy to p2 -> self-interaction
 
+	std::chrono::duration<double> kSearch_total(0);
+	std::chrono::duration<double> frSearch_total(0);
+	std::chrono::duration<double> listBuild_total(0);
+
 	for (int i = 0; i < nDataPts; i++)
 	{
+		// Record start time
+    	auto start = std::chrono::high_resolution_clock::now();
+
 		queryPt = dataPts[i];
 		const int queryPtIdx = i;
 		//cout << "Query point [" << i << "]: "; // echo query point
@@ -112,6 +120,10 @@ int main(int argc, char **argv)
 			NULL,
 			NULL,
 			eps);
+
+		auto finish = std::chrono::high_resolution_clock::now();
+		kSearch_total = kSearch_total + (finish - start);
+		start = std::chrono::high_resolution_clock::now();
 
 		nnIdx = new ANNidx[nNeighbors];  // allocate nn indices
 		dists = new ANNdist[nNeighbors]; // allocate nn dists
@@ -130,6 +142,11 @@ int main(int argc, char **argv)
 			dists[i] = sqrt(dists[i]); // unsquare distance
 			//cout << "\t" << i << "\t" << nnIdx[i] << "\t" << dists[i] << "\n";
 		}
+
+		finish = std::chrono::high_resolution_clock::now();
+		frSearch_total = frSearch_total + (finish - start);
+		start = std::chrono::high_resolution_clock::now();
+
 
 		int qpIdx = i;
 		for (int n = 0; n < nNeighbors; n++) // loop over neighbors
@@ -158,8 +175,17 @@ int main(int argc, char **argv)
 				}
 			}
 		}
+		finish = std::chrono::high_resolution_clock::now();
+		listBuild_total = listBuild_total + (finish - start);
+		start = std::chrono::high_resolution_clock::now();
 	}
 
+	std::cout << "k search: \t" << kSearch_total.count() << " s\n";
+	std::cout << "fr search: \t" << frSearch_total.count() << " s\n";
+	std::cout << "p1p2 lists: \t" << listBuild_total.count() << " s\n";
+
+	//include cassert
+	//assert (pi1.size() == p2.size())
 	if (p1.size() != p2.size())
 	{
 		cout << "p1 and p2 are not of same size!";
