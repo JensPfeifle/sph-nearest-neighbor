@@ -75,7 +75,7 @@ int writeStats(const double data[], const int numstats)
 	myfile.open("stats.csv", std::ios_base::app);
 	for (int i = 0; i < numstats; i++)
 	{
-		myfile << data[i] << ",";
+		myfile << "," << data[i];
 	}
 	myfile << "\n";
 	myfile.close();
