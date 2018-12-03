@@ -11,48 +11,36 @@ def read_datapts(file="data.pts"):
         n = len(lines)
         x = np.ndarray(n)
         y = np.ndarray(n)
+        z = np.ndarray(n)
         for n, line in enumerate(lines):
-            x[n], y[n] = line.strip().split("\t")
-    return (x, y)
-
-
-def read_results(file="result.dat"):
-
-    re_float = r"[0-9]*\.[0-9]*"
-
-    with open(file, 'r') as f:
-        lines = f.readlines()
-        n = len(lines)
-        neighbor_idxs = []
-        for n, line in enumerate(lines):
-            if n == 0:
-                radius = float(re.findall(re_float, line)[0])
-            elif n == 2:
-                p1, p2 = re.findall(re_float, line)
-                query_point = (float(p1), float(p2))
-            elif n >= 5:
-                neighbor_idxs.append(int(line.strip().split()[1]))
-
-    return radius, query_point, neighbor_idxs
-
+            x[n], y[n], z[n] = line.strip().split("\t")
+    return (x, y, z)
 
 if __name__ == "__main__":
-    data_x, data_y = read_datapts("data.pts")
-    r, qp, nn_idx = read_results("result.dat")
+    data_x, data_y, data_z = read_datapts("data.pts")
 
-    neighbors_x = [data_x[i] for i in nn_idx]
-    neighbors_y = [data_y[i] for i in nn_idx]
+    size = 5
+    fig, axes = plt.subplots(1,3, figsize =(14,6))
+    axes[0].scatter(data_x, data_y, s=size, label="datapoints")
+    axes[0].set_aspect('equal')
+    axes[0].set_xlim((0, CONF.Lx))
+    axes[0].set_ylim((0, CONF.Ly))
+    axes[0].set_xlabel('x')
+    axes[0].set_ylabel('y')
 
-    fig, ax = plt.subplots(figsize=(6, 8))
-    ax.scatter(data_x, data_y, s=10, label="datapoints")
-    ax.scatter(neighbors_x, neighbors_y,
-               label='{} neighbors'.format(len(nn_idx)))
-    ax.scatter(qp[0], qp[1], s=10, label='query point')
-    ax.set_aspect('equal')
-    ax.set_xlim((0, CONF.Lx))
-    ax.set_ylim((0, CONF.Ly))
-    ax.set_xlabel('x')
-    ax.set_ylabel('y')
-    ax.legend()
+    axes[1].scatter(data_y, data_z, s=size, label="datapoints")
+    axes[1].set_aspect('equal')
+    axes[1].set_xlim((0, CONF.Ly))
+    axes[1].set_ylim((0, CONF.Lz))
+    axes[1].set_xlabel('y')
+    axes[1].set_ylabel('z')
+
+    axes[2].scatter(data_x, data_z, s=size, label="datapoints")
+    axes[2].set_aspect('equal')
+    axes[2].set_xlim((0, CONF.Lx))
+    axes[2].set_ylim((0, CONF.Lz))
+    axes[2].set_xlabel('x')
+    axes[2].set_ylabel('z')
+    
     plt.title("Test Domain")
     plt.show()
