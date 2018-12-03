@@ -13,6 +13,8 @@
 
 ## Testfälle
 
+Since the fill is discrete (set spacing), the fill ratio is not able to be realized exactly. Because of this, the user defines a "fillfactor", which must be slightly adjusted to get the correct final fill ratio.
+
 
 
 ## Outlook

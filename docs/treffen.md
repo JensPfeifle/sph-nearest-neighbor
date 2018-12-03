@@ -40,7 +40,7 @@
     - avg distances
 - Testfälle etwas begrenzen:
     - jeweils leer, mittel, voll
-    - clusters, stripes, mass
+    - clusters (checkerboard), stripes, mass
 - Optimierungsvorschläge: 
     - wenn datapt einmal ein querypt war, kann er aus der suche rausgenommen werden
     - map statt vektor
