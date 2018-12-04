@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import axes3d
 from typing import List, Tuple
 import config as CONF
-import re
+import sys
 
 
 def read_datapts(file="data.pts"):
@@ -25,15 +25,17 @@ if __name__ == "__main__":
 
     fig = plt.figure(figsize=(12, 8))
     ax = fig.add_subplot(111, projection='3d')
-    ax.scatter3D(data_x, data_y, data_z, s=10, label="datapoints")
+    ax.scatter(data_x, data_y, data_z, label="datapoints",
+               marker=',', s=1) #,
+               #linewidths=0.1, edgecolors='b')
 
     # plot corners of test domain
     domain_x = [0,  CONF.Lx, CONF.Lx,        0, 0]
     domain_y = [0,        0, CONF.Ly,  CONF.Ly, 0]
     domain_z = [0,        0,       0,        0, 0]
     ax.plot3D(domain_x, domain_y, domain_z, c='red')
-    domain_x = [      0, CONF.Lx, CONF.Lx,       0,       0]
-    domain_y = [      0,       0, CONF.Ly, CONF.Ly,       0]
+    domain_x = [0, CONF.Lx, CONF.Lx,       0,       0]
+    domain_y = [0,       0, CONF.Ly, CONF.Ly,       0]
     domain_z = [CONF.Lz, CONF.Lz, CONF.Lz, CONF.Lz, CONF.Lz]
     ax.plot3D(domain_x, domain_y, domain_z, c='red', label="domain bounds")
 
@@ -44,5 +46,11 @@ if __name__ == "__main__":
     ax.set_ylabel('y')
     ax.set_zlabel('z')
     ax.legend()
-    plt.title("Test Domain")
+
+    fig.tight_layout()
+    
+    if len(sys.argv) > 1:
+        plt.suptitle(" ".join([str(arg) for arg in sys.argv[1:]]))
+    else: 
+        print("You may add a suptitle by passing arguments.")
     plt.show()
