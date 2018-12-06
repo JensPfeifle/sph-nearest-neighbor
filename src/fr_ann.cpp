@@ -16,7 +16,7 @@ using namespace std;
 // 0: naive (double for loop) search
 // 1: sorted search
 //----------------------------------------------------------------------
-#define INTERACTIONLISTMETHOD 0
+#define INTERACTIONLISTMETHOD 1
 
 //----------------------------------------------------------------------
 //	Parameters that are set in getArgs()
@@ -77,7 +77,7 @@ int writeStats(const double data[], const int numstats)
 	{
 		myfile << "," << data[i];
 	}
-	myfile << "\n";
+	myfile << "," << INTERACTIONLISTMETHOD << "\n";
 	myfile.close();
 	return 0;
 }
