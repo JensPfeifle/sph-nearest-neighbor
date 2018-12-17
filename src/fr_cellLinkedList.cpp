@@ -4,7 +4,11 @@
 #include <fstream>
 #include <vector>
 #include <algorithm>
+#include <chrono>
+#include <cassert>
 #include <ANN/ANN.h>
+
+
 
 
 using namespace std;
@@ -32,6 +36,46 @@ bool readPt(istream &in, ANNpoint p) // read point (false on EOF)
 	return true;
 }
 
+
+void printPt(ostream &out, ANNpoint p) // print point
+{
+	out << "(" << p[0];
+	for (int i = 1; i < dim; i++)
+	{
+		out << ", " << p[i];
+	}
+	out << ")\n";
+}
+
+int writeOutput(vector<int> &p1, vector<int> &p2)
+{
+	std::ofstream myfile;
+	myfile.open("interactionpairs.dat");
+	myfile << "\tp1\tp2"
+		   << "\n"
+		   << "\t===\t==="
+		   << "\n";
+	for (int i = 0; i < p1.size(); i++)
+	{
+		myfile << "\t" << p1[i] << "\t" << p2[i] << "\n";
+	}
+	myfile.close();
+	return 0;
+}
+
+int writeStats(const double data[], const int numstats)
+{
+	fstream myfile;
+	myfile.open("stats.csv", std::ios_base::app);
+	for (int i = 0; i < numstats; i++)
+	{
+		myfile << "," << data[i];
+	}
+	myfile << "," << "" << "\n";
+	myfile.close();
+	return 0;
+}
+
 int main(int argc, char **argv)
 {
 
@@ -44,11 +88,12 @@ int main(int argc, char **argv)
 	vector<int> partPart_p2;
 	vector<double> partPart_dist;
 
+	auto total_start = std::chrono::high_resolution_clock::now();
 
 	// read command-line arguments
 	getArgs(argc, argv);
 	double rSq = r*r;
-	cout << "Search radius: " << r << "\n";
+	//cout << "Search radius: " << r << "\n";
 
 	// Load data points
 	dataPts = annAllocPts(maxPts, dim); // allocate data points
@@ -69,6 +114,9 @@ int main(int argc, char **argv)
 		dataPtsZ[i] = dataPts[i][2];
 	}
 	annClose(); // done with ANN
+
+	// Record start time
+	auto start = std::chrono::high_resolution_clock::now();
 
 	// Determine bounding box
 	double boundingBoxMinX = 0.0;
@@ -202,11 +250,15 @@ int main(int argc, char **argv)
 
 	}
 
+	auto total_finish = std::chrono::high_resolution_clock::now();
+	std::chrono::duration<double> total = (total_finish - total_start);
+	double ttotal = total.count();
 
-	for (size_t i = 0; i < partPart_p1.size(); i++) {
-		cout << "Pair " << i << " >>> p1/p2: " << partPart_p1[i] << " / " << partPart_p2[i] << "  distance: " << partPart_dist[i] << endl;
-	}
+	writeOutput(partPart_p1, partPart_p2);
 
+	const int numstats = 1;
+	double stats[numstats] = {ttotal};
+	writeStats(stats, numstats);
 
 	return EXIT_SUCCESS;
 }
