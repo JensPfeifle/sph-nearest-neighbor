@@ -1,7 +1,7 @@
 #!/bin/bash
 # pwd = /home/jens/git/sph-nearest-neighbor
 
-NRUNS=1
+NRUNS=5
 
 mkdir -p ./test
 rm -rf ./test/*
