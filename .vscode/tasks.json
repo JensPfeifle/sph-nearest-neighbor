@@ -64,6 +64,25 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "Build fr_cellLinkedList",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "${workspaceFolder}/src/fr_cellLinkedList.cpp",
+                "-o${workspaceFolder}/bin/fr_cellLinkedList",
+                "-O3",
+                "-Wall",
+                "-I${workspaceFolder}/ann_1.1.2/include",
+                "-L${workspaceFolder}/ann_1.1.2/lib",
+                "-lANN"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
             "label": "Test 3D",
             "dependsOn": [
                 "Build fr_ann",
