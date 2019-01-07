@@ -1,0 +1,100 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Titelseite basierend auf dem Entwurf von Pascal Schuler vom 01.12.2009
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{titlepage}
+\pagestyle{empty}												
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Instituts-/KIT-Logo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hspace*{-1cm}													% gesamte Titelseite um 1cm nach rechts verschieben
+\parbox[t][21cm][t]{4cm}										% zwischen den parbox'n darf keine Leerzeile existieren
+	{															% sonst werden sie untereinander statt nebeneinander gestellt	
+	\begin{center}
+		\vspace*{-2cm}\hspace*{-2cm}
+		\includegraphics[scale=1.0]{sonstiges/its_logo.png}		% LOGO des ITS
+		
+		\vspace*{21cm}\hspace*{0cm}
+		\includegraphics[scale=0.6]{sonstiges/kit_logo.pdf}		% KIT-Logo
+	\end{center}
+	}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Institutssymbol
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\parbox[t][22cm][t]{12cm}								% parbox = 2.Spalte mit Text
+{																			% [Ausrichtung] [Höhe] [AusrichtenInnen] {Breite}
+\begin{flushleft}
+	\vspace*{-1.6cm}\hspace*{-1.7cm}			% (2-x)cm = Abstand zwischen ITS-Logo und -Name
+	\Large\sffamily
+	\parbox[t][3.0cm][t]{13.5cm}
+		{
+			Institut~für~Thermische~Strömungsmaschinen\\
+			\large Prof.~Dr.-Ing.~H.-J.~Bauer, Ord.~\\
+		}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Titel
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\vspace{3.5cm}\hspace*{-1.7cm}					% Leerzeile vor vertikaler Abstandsangabe notwendig
+	\parbox[t][5cm][t]{13.5cm}								% [Ausrichtung] [Höhe] [AusrichtenInnen] {Breite}
+		{
+			\LARGE 				
+			\centering\bfseries\doctitle  
+		}
+			
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Autor
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\vspace{2cm}\hspace*{-1.7cm}						% Leerzeile vor vertikaler Abstandsangabe notwendig
+	\parbox[t][3cm][t]{13.5cm}
+		{
+			\LARGE	
+			\centerline{\doctype}
+			\centerline{von}
+			\centerline{\bfseries\docauthor}
+		} 		
+\end{flushleft}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Betreuer
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Leerzeile vor vertikaler Abstandsangabe notwendig
+	\ifthenelse{\equal{\betreuerII}{}}
+	{
+		\vspace*{2cm}\hspace*{-1.7cm}
+	}
+	{
+		\vspace*{2cm}\vspace*{-\baselineskip}\hspace*{-1.7cm}
+	}
+	\parbox[t][1cm][t]{13.5cm}
+	{
+		\ifthenelse{\equal{\betreuerII}{}}
+		{
+			\leftline{\Large\sffamily Betreuer:~\bfseries\betreuerI}
+		}
+		{
+		\begin{tabbing}
+			\Large\sffamily Betreuer: \= \Large\sffamily\bfseries\betreuerI\\
+			\> \Large\sffamily\bfseries\betreuerII
+		\end{tabbing}
+		\vspace*{-\baselineskip}
+		}
+		\vspace*{0.5cm}
+		\hrule
+		\vspace*{0.5cm}
+		\leftline{\Large\sffamily \monthword{\month}~\the\year}																		
+	}
+}
+\cleardoublepage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%           Versicherung
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{empty}
+\vspace*{0.1cm}
+Ich versichere, die Arbeit selbständig verfasst und nur die angegebenen Quellen und Hilfsmittel verwendet zu haben. Die wörtlich oder inhaltlich übernommenen Stellen sind als solche kenntlich gemacht. Die Satzung des Karlsruher Instituts für Technologie (KIT) zur Sicherung guter wissenschaftlicher Praxis wurde von mir in der aktuellen Fassung beachtet.
+\vspace*{3cm}
+\begin{center}
+\doclocation, \docdate
+\end{center}
+\cleardoublepage
+\end{titlepage}

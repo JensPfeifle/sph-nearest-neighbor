@@ -1,0 +1,78 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Standardpakete
+% Hilfe zu Paketen bieten die Kommandozeilentools texdoc (TeXLive) bzw. mthelp (Miktex)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[comma,
+	sort,
+% square,
+%	numbers
+	]{natbib}									% Formatierung des Literaturverzeichnisses 
+\usepackage[ngerman,english]{babel} 			% Sprachpaket: neudeutsch, englisch, französisch
+\usepackage[utf8]{inputenc}        				% Standardpackage: unterstützt Zeichentabellen
+\usepackage[T1]{fontenc}              			% Standardpackage: unterstützt Schriftauswahl
+\usepackage{lmodern}							% Schrift latin modern
+\usepackage{amsmath}                  			% Standardpackage: Formelformatierung
+\usepackage{amsfonts}                 			% Standardpackage: Formelformatierung
+\usepackage{amssymb}                  			% Standardpackage: Formelformatierung
+\usepackage{mathptmx}   						% Formeln und Text mit Adobe Times Roman Postscript-Schriften
+\usepackage[scaled=.92]{helvet}					% Helvetica ist serifenlose Standardschriftart
+\usepackage{courier}							% Courier ist typeset Standardschriftart
+\usepackage{fixmath}   							% ISO-Formatierung griechischer Buchstaben
+\usepackage[headsepline
+	]{scrlayer-scrpage}							% Header-Formatierung
+\usepackage{siunitx}                  			% Formatierung der Einheiten
+\sisetup{
+	per-mode=symbol,							% Form des Bruchstrichs: reciprocal (Exponent), symbol (/) oder fraction
+	locale = DE 								% Ländereinstellung (Dezimaltrennzeichen usw.)
+}
+\usepackage{graphicx}							% Zusätzliche Optionen zur Grafikeinbindung
+%\graphicspath{{./bilder/}]}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Zusätzliche Pakete
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[
+	margin=10pt,
+	labelformat=simple,
+	labelsep=colon,
+	font=normal,
+	labelfont=normal,
+	skip=15pt
+	]{caption}[2008/08/24]  					% Erlaubt die Formatierung der Bildunter- und Tabellenüberschriften
+\usepackage{ifthen}								% Paket für Abfragen
+\usepackage{color}								% Farbige Texte
+\usepackage{transparent}						% Transparenz
+\usepackage{booktabs}							% Nützliche Tabellentools (\topline, \midline, \bottomline, ...)
+\usepackage{longtable}							% Tabellen über mehrere Seiten
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Optionale (aber evtl. nützliche) Pakete
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{lipsum}								% Einbindung von Lorem Ipsum als Platzhalter
+\usepackage{multirow}                 			% Befehle analog \multicolumn in vertikaler Richtung
+\usepackage{subcaption}							% Ermöglicht die Verwendung von subfigure
+\PreventPackageFromLoading{subfig} 				% Verhindert das Laden des veralteten Packages subfig
+\usepackage[svgpath=bilder/]{svg}	  			% Automatisches Einbinden von svg-Dateien
+\usepackage{textcomp}							% Ermöglicht die Einbindung von Symbolen
+\usepackage[
+	colorlinks=true, 
+	linkcolor=black, 
+	citecolor=black, 
+	urlcolor=black
+	]{hyperref}									% Verlinkte Referenzen
+\hypersetup{
+	pdftitle={\doctitle},
+	pdfsubject={\docsubject},
+	pdfauthor={\docauthor},
+	pdfkeywords={\dockeywords},
+  pdfcreator={\doccreator},
+  pdfproducer={\docproducer}
+}
+\usepackage{nameref}							% Definition der Metadaten, die dem PDF-Dokument hinterlegt werden
+\usepackage[nonumberlist,
+	nomain=true,
+	acronym,
+	toc,
+	numberedsection=false,
+	]{glossaries}								% Glossaries-Paket zur Erstellung eines Glossars
+\newcounter{dummy} 								% korrekte Verlinkung der Literatur und anderer Verzeichnisse

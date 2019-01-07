@@ -1,0 +1,23 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Header formatieren
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Festlegen des Stils
+\pagestyle{scrheadings}
+% Formatieren der angezeigten Kapitelüberschrift (Weglassen der Kapitelnummer)
+\renewcommand*{\chaptermarkformat}{}
+% Festlegen des Inhalts für Abschnittskopfzeile
+\automark[section]{chapter}
+\clearpairofpagestyles
+
+% Formatierung der Kopfzeilen (o = outer, i = inner), optionales Argument wird für \pagestyle{plain} gesetzt
+\ohead{\pagemark}
+\ihead{\headmark}
+\chead{}
+
+% Formatierung der Fußzeilen (s.o.)
+\ifoot{}
+\ofoot{}
+\cfoot{}
+
+% Schriftgröße/-art
+\setkomafont{pageheadfoot}{\normalsize}

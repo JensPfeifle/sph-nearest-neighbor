@@ -1,0 +1,171 @@
+%\deftranslation[to=ngerman]{Glossary}{Symbolverzeichnis}
+%\setglossarysection{subsubsection}
+\renewcommand{\glossarysection}[3][]{}
+\vspace{-10pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Einträge definieren
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Lateinische Symbole
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newglossaryentry{hoehe}{%
+	type=latinSymb,
+	name=\ensuremath{H},
+	symbol = \ensuremath{H},
+	description={Höhe},
+	unit={\si{\meter}}
+}
+\newglossaryentry{cp}{%
+	type=latinSymb,
+	name=\ensuremath{c_p},
+	symbol = \ensuremath{c_p},
+	description={Spezifische Wärmekapazität},
+	unit={\si{\joule\per\kilogram\per\kelvin}}
+}
+\newglossaryentry{faktorxyz}{%
+	type=latinSymb,
+	name=\ensuremath{F_\text{xy}},
+	symbol=\ensuremath{F_\text{xy}},
+	description={Faktor xy},
+	unit={}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Griechische Symbole
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newglossaryentry{dissrate}{%
+	type=greekSymb,
+	name=\ensuremath{\varepsilon},
+	symbol=\ensuremath{\varepsilon},
+	description={Dissipationsrate},
+	unit={\si{\meter^2\per\second^3}}
+}
+\newglossaryentry{isentropenexp}{%
+	type=greekSymb,
+	name=\ensuremath{\kappa},
+	symbol=\ensuremath{\kappa},
+	description={Isentropenexponent},
+	unit={}
+}
+\newglossaryentry{waermeleit}{%
+	type=greekSymb,
+	name=\ensuremath{\lambda},
+	symbol = \ensuremath{\lambda},
+	description={Wärmeleitfähigkeit},
+	unit={\si{\watt\per\meter\per\kelvin}}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Indizes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newglossaryentry{ind_x}{%
+	type=indices,
+	name=\ensuremath{\text{x}},
+	symbol=\ensuremath{\text{x}},
+	description={x-Koordinate},
+	unit={}
+}
+\newglossaryentry{ind_r}{%
+	type=indices,
+	name=\ensuremath{\text{r}},
+	symbol=\ensuremath{\text{r}},
+	description={r-Koordinate},
+	unit={}
+}
+\newglossaryentry{ind_z}{%
+	type=indices,
+	name=\ensuremath{\text{z}},
+	symbol=\ensuremath{\text{z}},
+	description={z-Koordinate},
+	unit={}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Ã„hnlichkeitskennzahlen
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newglossaryentry{sim_re}{%
+	type=simPar,
+	name=\ensuremath{\textit{Re}},
+	symbol=\ensuremath{\textit{Re}},
+	description={Reynoldszahl},
+	unit={}
+}
+\newglossaryentry{sim_nu}{%
+	type=simPar,
+	name=\ensuremath{\textit{Nu}},
+	symbol=\ensuremath{\textit{Nu}},
+	description={Nußeltzahl},
+	unit={}
+}
+\newglossaryentry{sim_pr}{%
+	type=simPar,
+	name=\ensuremath{\textit{Pr}},
+	symbol=\ensuremath{\textit{Pr}},
+	description={Prandtlzahl},
+	unit={}
+}
+\newglossaryentry{sim_bi}{%
+	type=simPar,
+	name=\ensuremath{\textit{Bi}},
+	symbol=\ensuremath{\textit{Bi}},
+	description={Biotzahl},
+	unit={}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Abkürzungen
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newglossaryentry{abbr_fem}{%
+	type=abbrevs,
+	name=\ensuremath{\text{FEM}},
+	symbol=\ensuremath{\text{FEM}},
+	description={Finite-Elemente-Methode},
+}
+\newglossaryentry{abbr_cfd}{%
+	type=abbrevs,
+	name=\ensuremath{\text{CFD}},
+	symbol=\ensuremath{\text{CFD}},
+	description={Computational Fluid Dynamics},
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Formatierung
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newglossarystyle{symbUnit}{%
+	\setglossarystyle{long3col}% base this style on the list style
+	\renewenvironment{theglossary}{
+		\begin{longtable}{@{}p{0.2\textwidth}@{}p{0.15\textwidth}@{}p{0.64\textwidth}}}%
+		{\end{longtable}}%
+	\renewcommand*{\glossaryheader}{%  Change the table header
+		\multicolumn{3}{@{}l}{\itshape \glossarytitle} \\
+		\endhead}
+	\renewcommand*{\glossentry}[2]{%  Change the displayed items
+		\glstarget{##1}{\glossentryname{##1}} %
+		& \glsunit{##1}% Description
+		& \glossentrydesc{##1}
+		\tabularnewline}
+		\vspace{-6pt}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Formatierung
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newglossarystyle{symb}{%
+	\setglossarystyle{long3col}% base this style on the list style
+	\renewenvironment{theglossary}{
+		\begin{longtable}{@{}p{0.2\textwidth}@{}p{0.15\textwidth}@{}p{0.64\textwidth}}}%
+		{\end{longtable}}%
+	\renewcommand*{\glossaryheader}{%  Change the table header
+		\multicolumn{3}{@{}l}{\itshape \glossarytitle} \\
+		\endhead}
+	\renewcommand*{\glossentry}[2]{%  Change the displayed items
+		\glstarget{##1}{\glossentryname{##1}} %
+		& % Description
+		& \glossentrydesc{##1}
+		\tabularnewline}
+		\vspace{-6pt}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Ausgabe
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\printglossary[type=latinSymb,style=symbUnit]					% Lateinische Symbole
+\printglossary[type=greekSymb,style=symbUnit]					% Griechische Symbole
+\printglossary[type=simPar,style=symb]								% Ähnlichkeitskennzahlen
+\printglossary[type=indices,style=symb]								% Indizes
+\printglossary[type=abbrevs,style=symb]								% Abkürzungen
+%\printglossaries
