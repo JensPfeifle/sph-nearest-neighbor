@@ -1,26 +1,33 @@
-\select@language {english}
-\select@language {ngerman}
-\contentsline {chapter}{Symbolverzeichnis}{ii}{dummy.1}
-\contentsline {chapter}{Abbildungsverzeichnis}{iii}{dummy.2}
-\contentsline {chapter}{Tabellenverzeichnis}{iv}{dummy.3}
-\contentsline {chapter}{\numberline {1}Abschlussarbeiten am ITS}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1}Allgemeines}{1}{section.1.1}
-\contentsline {section}{\numberline {1.2}Einleitung}{2}{section.1.2}
-\contentsline {section}{\numberline {1.3}Stand der Forschung}{2}{section.1.3}
-\contentsline {section}{\numberline {1.4}Grundlagen}{2}{section.1.4}
-\contentsline {section}{\numberline {1.5}Material und Methoden}{3}{section.1.5}
-\contentsline {section}{\numberline {1.6}Ergebnisse und Diskussion}{3}{section.1.6}
-\contentsline {section}{\numberline {1.7}Zusammenfassung und Ausblick}{3}{section.1.7}
-\contentsline {section}{\numberline {1.8}Anhang}{4}{section.1.8}
-\contentsline {chapter}{\numberline {2}Weitere Hinweise}{5}{chapter.2}
-\contentsline {section}{\numberline {2.1}Sprachliche Gestaltung}{5}{section.2.1}
-\contentsline {section}{\numberline {2.2}Gliederung}{6}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}\IeC {\"u}berfl\IeC {\"u}ssige \IeC {\"U}berschrift}{6}{subsection.2.2.1}
-\contentsline {section}{\numberline {2.3}Literaturverweise}{6}{section.2.3}
-\contentsline {section}{\numberline {2.4}Abbildungen und Tabellen}{6}{section.2.4}
-\contentsline {section}{\numberline {2.5}Diagramme}{8}{section.2.5}
-\contentsline {section}{\numberline {2.6}Gleichungen}{10}{section.2.6}
-\contentsline {chapter}{Literaturverzeichnis}{11}{dummy.4}
-\contentsline {chapter}{Anhang}{12}{appendix*.9}
-\contentsline {section}{\numberline {A.1}Anhang 1}{12}{section.A.1}
-\contentsline {section}{\numberline {A.2}Anhang 2}{12}{section.A.2}
+\babel@toc {english}{}
+\babel@toc {english}{}
+\contentsline {chapter}{List of Symbols}{ii}{dummy.1}
+\contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.1}
+\contentsline {chapter}{\numberline {2}Motivation}{2}{chapter.2}
+\contentsline {chapter}{\numberline {3}Objective}{3}{chapter.3}
+\contentsline {chapter}{\numberline {4}Methods and Tools}{4}{chapter.4}
+\contentsline {section}{\numberline {4.1}Smoothed Particle Hydrodynamics}{4}{section.4.1}
+\contentsline {section}{\numberline {4.2}Particle interaction and nearest-neighbor search}{4}{section.4.2}
+\contentsline {section}{\numberline {4.3}The ANN Library}{4}{section.4.3}
+\contentsline {chapter}{\numberline {5}Ergebnisse und Diskussion}{6}{chapter.5}
+\contentsline {chapter}{\numberline {6}Zusammenfassung und Ausblick}{7}{chapter.6}
+\contentsline {chapter}{\numberline {7}Abschlussarbeiten am ITS}{8}{chapter.7}
+\contentsline {section}{\numberline {7.1}Allgemeines}{8}{section.7.1}
+\contentsline {section}{\numberline {7.2}Einleitung}{9}{section.7.2}
+\contentsline {section}{\numberline {7.3}Stand der Forschung}{9}{section.7.3}
+\contentsline {section}{\numberline {7.4}Grundlagen}{9}{section.7.4}
+\contentsline {section}{\numberline {7.5}Material und Methoden}{10}{section.7.5}
+\contentsline {section}{\numberline {7.6}Ergebnisse und Diskussion}{10}{section.7.6}
+\contentsline {section}{\numberline {7.7}Zusammenfassung und Ausblick}{10}{section.7.7}
+\contentsline {section}{\numberline {7.8}Anhang}{11}{section.7.8}
+\contentsline {chapter}{\numberline {8}Weitere Hinweise}{12}{chapter.8}
+\contentsline {section}{\numberline {8.1}Sprachliche Gestaltung}{12}{section.8.1}
+\contentsline {section}{\numberline {8.2}Gliederung}{13}{section.8.2}
+\contentsline {subsection}{\numberline {8.2.1}\IeC {\"u}berfl\IeC {\"u}ssige \IeC {\"U}berschrift}{13}{subsection.8.2.1}
+\contentsline {section}{\numberline {8.3}Literaturverweise}{13}{section.8.3}
+\contentsline {section}{\numberline {8.4}Abbildungen und Tabellen}{13}{section.8.4}
+\contentsline {section}{\numberline {8.5}Diagramme}{15}{section.8.5}
+\contentsline {section}{\numberline {8.6}Gleichungen}{17}{section.8.6}
+\contentsline {chapter}{References}{18}{dummy.2}
+\contentsline {chapter}{Appendix}{19}{chapter*.7}
+\contentsline {section}{\numberline {A.1}Anhang 1}{19}{section.A.1}
+\contentsline {section}{\numberline {A.2}Anhang 2}{19}{section.A.2}

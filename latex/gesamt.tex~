@@ -25,16 +25,17 @@ draft=false,									% Entwurfsmodus true/false
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Metadaten und Variablen zur Verwendung im Dokument und zur Erstellung der PDF-Datei
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\doctitle}{Implementation of a Nearest-Neighbor Search for Particle Simulation in Sparse Computational Domains} 				% Titel der Arbeit
-\newcommand{\doctype}{Energietechnisches Praktikum}			% Dokumenttyp
-\newcommand{\docauthor}{Jens Peifle, B.Sc.}	% Autor
+\newcommand{\doctitle}{Numerische Untersuchung der Str\"omung durch rotierende Bohrungen} 				% Titel der Arbeit
+\newcommand{\doctype}{Bachelorarbeit}			% Dokumenttyp
+\newcommand{\docauthor}{Egon Eiermann, B.Sc.}	% Autor
 \newcommand{\doclocation}{Karlsruhe}			% Erstellungsort
-\newcommand{\betreuerI}{Marc Keller, M.Sc.}	% Betreuer1
+\newcommand{\betreuerI}{Max Mustermann, M.Sc.}	% Betreuer1
 \newcommand{\betreuerII}{}						% Betreuer2 (optional, kann leer gelassen werden)
 \newcommand{\docsubject}{Kurzbeschreibung}		% Kurzbeschreibung
 \newcommand{\dockeywords}{%
 Flugzeugtriebwerke,
-	SPH, Partikel
+	Gasturbinen, 
+	W\"arme\"ubergang
 }												% Stichworte
 \newcommand{\doccreator}{pdflatex}				% Erstellt mit
 \newcommand{\docproducer}{LaTeX}				% Software
@@ -57,7 +58,7 @@ Flugzeugtriebwerke,
 % Sprachauswahl
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % neudeutsch = {ngerman}, englisch = {english}, französisch = {french}
-\selectlanguage{english}
+\selectlanguage{ngerman}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Titelseiten, Inhaltsverzeichnis, Tabellenverzeichnis
@@ -71,7 +72,6 @@ Flugzeugtriebwerke,
 %\input{kapitel/standDerForschung.tex}
 %\input{kapitel/zielsetzung.tex}
 
-\input{kapitel/elabor.tex}
 \input{kapitel/hinweise_its.tex}
 %\input{kapitel/TeXintro.tex}
 \input{kapitel/weitere_hinweise_its.tex}

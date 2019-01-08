@@ -1,0 +1,75 @@
+% Auf ungerader Seite starten
+\cleardoublepage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Einleitung
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Einleitung}
+\label{Chapter: Einleitung}
+
+Turbofan engines are widely used in commercial aircraft.  New, more stringent requirements with regards to emissions, fuel consumption and noise pollution are putting pressure on aircraft engine manufacturers to increase the efficiency of their products. From a technical point of view, there are two options: increase the thermal efficiency of the turbine stage or increase the bypass ratio of the engine. The bypass ratio is the amount of air that passes around the turbine core rather than through it.  Generally, a higher bypass ratio results in a quieter, more efficient engine. To increase the bypass ratio, the diameter of the engine's fan blades must be increased.  However, increasing the fan diameter leads to an increase in the circumferential velocity of the fan blade tips.  At very high speeds, large increases in losses and noise emissions are observed.
+
+In conventional turbofans, the fan and the low-pressure compressor and turbine which drives the fan are attached to single shaft.  In this configuration, the speed of the compressor stage is limited by the blade tip speeds to the fan.  With the addition of a gearbox between the fan and the compressor and turbine, the fan speed can be greatly reduced while the compressor and turbine can rotate much faster.  Both components can therefore operate at their optimal speeds, greatly increasing efficiency and reducing noise.
+
+However, geared turbofans are not without drawbacks.  In addition to increased complexity and manufacturing cost, a significant amount of energy is lost as heat within the gearbox.  The cooling and lubrication of the gearbox are key challenges.  These functions are realized with oil jets arranged around the gears.  The interaction between the oil jets and the gear surfaces determines the cooling and lubrication performance as well as the further propagation of the oil within the gearbox.
+
+Therefore, this interaction is a current focus of research at the Insitute of Thermal Turbomachinery at the Karlsruhe Institute of Technology.  Experimental investigations in this area are difficult due to the small time scale and inaccessible location of the interactions. However, Computational Fluid Dynamics (CFD) methods offer possibilities for detailed investigation. One such method is Smoothed Particle Hydrodynamics (SPH), a particle-based method that is well-suited to modeling free surface flows and moving boundaries.  SPH, like other approaches to fluid dynamics modeling, is very computationally expensive. To increase the pace of innovation, it is desirable to reduce the required computation time as much as possible.
+
+This work examines an approach to increasing the computational efficiency of the SPH solver and therefore reducing the required computation time. 
+
+\chapter{Motivation}
+
+\chapter{Objective}
+
+For each point $p_1$ within the computational domain (given in a list), find all neighbors $p_2$ that lie less than three times the mean particle spacing $dx$ (~particle Diameter) away from the particle. This includes the particle itself. 
+
+Problem properties:
+
+\begin{itemize}
+\item low-dimensional (2D/3D)
+\item large N (~10e6 points)
+\item static (for a single time step)
+\item  exact
+\end{itemize}
+
+Since the neighbors must be found for all points, we can use the fact that, if we know that $p_b$ is a neighbor of $p_a$ then $p_a$ is also a neighbor of $p_b$.   
+
+\chapter{Methods and Tools}
+
+\section{Smoothed Particle Hydrodynamics}
+Smoothed-particle hydrodynamics is a computational method which can be used to simulate mechanics of solids and fluids. It is mesh-free and employs the Lagrangian approach, which makes it well-suited for complex problems with free surface flows and moving boundaries. For fluid dynamics, it offers several key benefits:
+- conservation of mass without extra computations
+- pressure calculated locally instead of through solving a system of equations
+- no explicit tracking of fluid boundaries necessary
+
+Compared to mesh-based methods, SPH requires a very large number of particles to ensure an equivalent resolution. This is less of an issue in applications where there is relatively little high-density fluid (e.g. water) in a computational space filled with low-density fluid (e.g. air).
+
+\section{Particle interaction and nearest-neighbor search}
+During an SPH-method simulation, particles interact locally within a characteristic radius ("smoothing length"). In other words, each particle's behavior is influenced only by the particles surrounding it within a certain range. Therefore, for each particle $p_i$ in the domain, all points within a certain radius $r$ (in three-dimensions) must be determined. This is called ``fixed-radius near neighbors''.
+
+Interesting note:
+\begin{quote}
+  Although the size of the smoothing length can be fixed in both space and time, this does not take advantage of the full power of SPH. By assigning each particle its own smoothing length and allowing it to vary with time, the resolution of a simulation can be made to automatically adapt itself depending on local conditions. For example, in a very dense region where many particles are close together, the smoothing length can be made relatively short, yielding high spatial resolution. Conversely, in low-density regions where individual particles are far apart and the resolution is low, the smoothing length can be increased, optimising the computation for the regions of interest.
+\end{quote}
+[Source](https://en.wikipedia.org/wiki/Smoothed-particle_hydrodynamics#Interpolations)
+
+
+\section{The ANN Library}
+
+
+Fixed-radius k-nearest neighbor search with ANN
+
+From the ANN Progrograming Manual (page 7):
+\begin{quote}
+  In order to produce a true fixed-radius search,  first set k = 0 and run the procedure in order to obtain the number k' of points that lie within the radius bound. Then, allocate index and distance arrays of size k' each, and repeat the fixed-radius search by setting k = k' and passing in these two arrays.
+\end{quote}
+
+
+\chapter{Ergebnisse und Diskussion}
+
+In diesem Kapitel werden die Ergebnisse beschrieben, diskutiert und ggf. mit anderen Daten aus der Literatur verglichen. Die Diskussion soll klären, ob die Daten sinnvoll sind, die Ergebnisse so zu erwarten waren und ob ungewöhnliche Beobachtungen sichtbar sind. Es ist auf eine übersichtliche Struktur zu achten, untersuchte Fälle sind konsistent und logisch zu benennen. Die Darstellung der Daten ist an die verwendete Messgenauigkeit anzupassen (z.B. ist eine Angabe von \SI{314.394575}{K} in den meisten Fällen nicht sinnvoll).
+
+\chapter{Zusammenfassung und Ausblick}
+
+Die Zusammenfassung ermöglicht Außenstehenden einen Überblick über den Inhalt der Arbeit und enthält insbesondere die Zielsetzung, die verwendete Methodik, Verfahren und Ansätze sowie die erzielten Ergebnisse. Daran schließt sich ein Ausblick an, der mögliche Verbesserungen bzw. weitere Arbeitsschritte aufzählt. Die Zusammenfassung ist das am häufigsten gelesene Kapitel (größt mögliche Sorgfalt!) und umfasst maximal zwei bis drei Seiten.
