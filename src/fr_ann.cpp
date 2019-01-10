@@ -140,7 +140,7 @@ int main(int argc, char **argv)
 		const int nNeighbors = kdTree->annkFRSearch(
 			queryPt, // ANNpoint query point
 			rSq,	 // squared radius
-			k,		 //number of near neighbors to return
+			k,		 //max number of near neighbors to return
 			NULL,
 			NULL,
 			eps);
@@ -162,9 +162,9 @@ int main(int argc, char **argv)
 
 		//cout << "\tNN:\tIndex\tDistance\n";
 		for (int i = 0; i < nNeighbors; i++)
-		{							   // print summary
+		{       // print summary
 			dists[i] = sqrt(dists[i]); // unsquare distance
-									   //cout << "\t" << i << "\t" << nnIdx[i] << "\t" << dists[i] << "\n";
+		        //cout << "\t" << i << "\t" << nnIdx[i] << "\t" << dists[i] << "\n";
 		}
 
 		finish = std::chrono::high_resolution_clock::now();
@@ -172,8 +172,7 @@ int main(int argc, char **argv)
 		start = std::chrono::high_resolution_clock::now();
 
 		int qpIdx = i;
-		//cout << "\t" << i << "\t" << nnIdx[i] << "\t" << dists[i]
-		//	 << "\n";
+		//cout << "\t" << i << "\t" << nnIdx[i] << "\t" << dists[i] << "\n";
 
 		for (int n = 0; n < nNeighbors; n++) // loop over neighbors
 		{
@@ -185,6 +184,10 @@ int main(int argc, char **argv)
 		}
 		finish = std::chrono::high_resolution_clock::now();
 		listBuild_total = listBuild_total + (finish - start);
+		//std::cout << i << "\n";
+		//std::cout << kSearch_total.count() << "\n";
+		//std::cout << frSearch_total.count() << "\n";
+		//std::cout << listBuild_total.count() << "\n";
 	}
 
 	auto total_finish = std::chrono::high_resolution_clock::now();
@@ -193,6 +196,8 @@ int main(int argc, char **argv)
 	double tksearch = kSearch_total.count();
 	double tfrsearch = frSearch_total.count();
 	double tprocessing = listBuild_total.count();
+
+	std::cout << ttotal << "\n";
 
 	assert(p1.size() == p2.size());
 	writeOutput(p1, p2);
@@ -209,7 +214,8 @@ int main(int argc, char **argv)
 	return EXIT_SUCCESS;
 }
 
-bool check_interaction_exists(vector<int> &p1, vector<int> &p2, int &nInteractionPairs, const int qpIdx, const int nnIdx)
+bool check_interaction_exists(vector<int> &p1, vector<int> &p2, int &nInteractionPairs,
+			      const int qpIdx, const int nnIdx)
 {
 #ifndef INTERACTIONLISTMETHOD
 	cout << "Method for interaction list generation not specified. Please define INTERACTIONLISTMETHOD.";
@@ -285,7 +291,7 @@ bool check_interaction_exists(vector<int> &p1, vector<int> &p2, int &nInteractio
 	}
 	else
 	{
-		cout << "Interaction list method " << INTERACTIONLISTMETHOD << "does not exist.";
+		cout << "Interaction list method " << INTERACTIONLISTMETHOD << " does not exist.";
 	}
 }
 
