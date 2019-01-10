@@ -17,7 +17,6 @@ During an SPH-method simulation, particles interact locally within a characteris
 #### Interesting note:
 > Although the size of the smoothing length can be fixed in both space and time, this does not take advantage of the full power of SPH. By assigning each particle its own smoothing length and allowing it to vary with time, the resolution of a simulation can be made to automatically adapt itself depending on local conditions. For example, in a very dense region where many particles are close together, the smoothing length can be made relatively short, yielding high spatial resolution. Conversely, in low-density regions where individual particles are far apart and the resolution is low, the smoothing length can be increased, optimising the computation for the regions of interest. 
 [Source](https://en.wikipedia.org/wiki/Smoothed-particle_hydrodynamics#Interpolations)
-
 Objective
 ----------
 
