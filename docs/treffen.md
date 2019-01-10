@@ -43,7 +43,16 @@
     - clusters (checkerboard), stripes, mass
 - Optimierungsvorschläge: 
     - wenn datapt einmal ein querypt war, kann er aus der suche rausgenommen werden
+        -  Bringt aber nichts, da der suchbaum dann neu generiert werden müsste?
     - map statt vektor
     - statische arrays statt vektor
 - Aktuelle suche im SPH code ist Linked Cell Method
 - bdtrees wohl gut, wenn suchraum sparse besetzt, kann man das einfach verschen bzw mit fixed radius kombinieren?
+
+2018.12.06
+===========
+
+- testcases und auswertung für ANN gezeit
+- Code bekommen für cell LunkedList suche
+- Sortierung der interactionpairlisten wäre eventuell sogar räumlich besser als nach index sortiert
+- 
