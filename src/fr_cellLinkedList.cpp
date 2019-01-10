@@ -17,7 +17,6 @@ using namespace std;
 //	Parameters that are set in getArgs()
 //----------------------------------------------------------------------
 double r = 0.0;	// radius of search
-int k = 1;		   // number of nearest neighbors
 int dim = 2;	   // dimension
 double eps = 0;	// error bound
 int maxPts = 1000; // maximum number of data points
@@ -271,15 +270,12 @@ void getArgs(int argc, char **argv)
 	if (argc <= 1)
 	{ // no arguments
 		cerr << "Usage:\n\n"
-			 << "  fixed_radius_ann [-d dim] [-max m] [-nn k] [-e eps]\n"
-			 << "                    [-df data] [-r radius]\n"
+			 << "  fixed_radius_cellLinked [-d dim] [-max m] \n"
+			 << "                [-df data] [-r radius]\n"
 			 << "\n"
 			 << "  where:\n"
 			 << "    dim      dimension of the space (default = 2)\n"
 			 << "    m        maximum number of data points (default = 1000)\n"
-			 << "    k        number of nearest neighbors per query (default 1)\n"
-			 << "    eps      the error bound (default = 0.0)\n"
-			 << "    query    name of file containing query points (default = data)\n"
 			 << "    data     name of file containing data points\n"
 			 << "    radius   radius of of query\n"
 			 << "\n"
@@ -300,17 +296,9 @@ void getArgs(int argc, char **argv)
 		{							  // -max option
 			maxPts = atoi(argv[++i]); // get max number of points
 		}
-		else if (!strcmp(argv[i], "-nn"))
-		{						 // -nn option
-			k = atoi(argv[++i]); // get number of near neighbors
-		}
 		else if (!strcmp(argv[i], "-r"))
 		{						 // -r option
 			r = atof(argv[++i]); // set radius of search
-		}
-		else if (!strcmp(argv[i], "-e"))
-		{									// -e option
-			sscanf(argv[++i], "%lf", &eps); // get error bound
 		}
 		else if (!strcmp(argv[i], "-df"))
 		{										 // -df option
