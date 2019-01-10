@@ -25,7 +25,7 @@ python3 test3d_full.py
 echo "Start fr_ann ($n/$NRUNS)..."
 ./fr_ann \
     -d 3 \
-    -max 5000 \
+    -max 250000 \
     -nn 50 \
     -e 0.0 \
     -df data.pts \
@@ -43,7 +43,7 @@ python3 test3d_clusters.py 0.125 2
 echo "Start fr_ann ($n/$NRUNS)..."
 ./fr_ann \
     -d 3 \
-    -max 5000 \
+    -max 250000 \
     -nn 50 \
     -e 0.0 \
     -df data.pts \
@@ -56,7 +56,7 @@ python3 test3d_clusters.py 0.125 4
 echo "Start fr_ann ($n/$NRUNS)..."
 ./fr_ann \
     -d 3 \
-    -max 5000 \
+    -max 250000 \
     -nn 50 \
     -e 0.0 \
     -df data.pts \
@@ -69,7 +69,7 @@ python3 test3d_clusters.py 0.125 6
 echo "Start fr_ann ($n/$NRUNS)..."
 ./fr_ann \
     -d 3 \
-    -max 5000 \
+    -max 250000 \
     -nn 50 \
     -e 0.0 \
     -df data.pts \
@@ -87,7 +87,7 @@ python3 test3d_clusters.py 0.6 5
 echo "Start fr_ann ($n/$NRUNS)..."
 ./fr_ann \
     -d 3 \
-    -max 5000 \
+    -max 250000 \
     -nn 50 \
     -e 0.0 \
     -df data.pts \
@@ -100,7 +100,7 @@ python3 test3d_clusters.py 0.6 10
 echo "Start fr_ann ($n/$NRUNS)..."
 ./fr_ann \
     -d 3 \
-    -max 5000 \
+    -max 250000 \
     -nn 50 \
     -e 0.0 \
     -df data.pts \
@@ -113,7 +113,7 @@ python3 test3d_clusters.py 0.6 20
 echo "Start fr_ann ($n/$NRUNS)..."
 ./fr_ann \
     -d 3 \
-    -max 5000 \
+    -max 250000 \
     -nn 50 \
     -e 0.0 \
     -df data.pts \
@@ -131,7 +131,7 @@ python3 test3d_corners.py 0.78
 echo "Start fr_ann ($n/$NRUNS)..."
 ./fr_ann \
     -d 3 \
-    -max 5000 \
+    -max 250000 \
     -nn 50 \
     -e 0.0 \
     -df data.pts \
@@ -149,7 +149,7 @@ python3 test3d_corners.py 0.5
 echo "Start fr_ann ($n/$NRUNS)..."
 ./fr_ann \
     -d 3 \
-    -max 5000 \
+    -max 250000 \
     -nn 50 \
     -e 0.0 \
     -df data.pts \
@@ -167,7 +167,7 @@ python3 test3d_diagonal.py 0.47
 echo "Start fr_ann ($n/$NRUNS)..."
 ./fr_ann \
     -d 3 \
-    -max 5000 \
+    -max 250000 \
     -nn 50 \
     -e 0.0 \
     -df data.pts \
@@ -186,7 +186,7 @@ python3 test3d_corners.py 0.84
 echo "Start fr_ann ($n/$NRUNS)..."
 ./fr_ann \
     -d 3 \
-    -max 5000 \
+    -max 250000 \
     -nn 50 \
     -e 0.0 \
     -df data.pts \
