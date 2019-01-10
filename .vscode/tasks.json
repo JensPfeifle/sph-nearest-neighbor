@@ -4,25 +4,6 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build scratchfile",
-            "type": "shell",
-            "command": "g++",
-            "args": [
-                "${workspaceFolder}/src/scratch.cpp",
-                "-o${workspaceFolder}/bin/scratch",
-                "-O3",
-                "-Wall",
-                "-I${workspaceFolder}/ann_1.1.2/include",
-                "-L${workspaceFolder}/ann_1.1.2/lib",
-                "-lANN"
-            ],
-            "group": "build",
-            "presentation": {
-                "reveal": "silent"
-            },
-            "problemMatcher": "$msCompile"
-        },
-        {
             "label": "Build fr_ann_query",
             "type": "shell",
             "command": "g++",
@@ -62,6 +43,29 @@
                 "reveal": "silent"
             },
             "problemMatcher": "$msCompile"
+        },
+        {
+        "label": "Build fr_nanoflann",
+        "type": "shell",
+        "command": "g++",
+        "args": [
+            "${workspaceFolder}/src/fr_nanoflann.cpp",
+            "-o${workspaceFolder}/bin/fr_nanoflann",
+            "-O3",
+            "-Wall",
+            "-I${workspaceFolder}/ann_1.1.2/include",
+            "-I${workspaceFolder}/nanoflann/include",
+            "-L${workspaceFolder}/ann_1.1.2/lib",
+            "-lANN"
+        ],
+        "group": {
+            "kind": "build",
+            "isDefault": true
+        },
+        "presentation": {
+            "reveal": "silent"
+        },
+        "problemMatcher": "$msCompile"
         },
         {
             "label": "Build fr_cellLinkedList",
