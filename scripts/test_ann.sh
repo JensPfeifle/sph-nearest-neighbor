@@ -43,9 +43,9 @@ echo "     TEST 3D FULL         "
 echo "          Fill 1.0        "
 echo "==========================="
 
-python3 test3d_full.py
 for n in `seq 1 $NRUNS`;
 do
+python3 test3d_full.py
 echo "Start $BIN ($n/$NRUNS)..."
 evaluate
 echo "$BIN finished"
@@ -56,25 +56,25 @@ echo "     TEST 3D CLUSTERS      "
 echo "          Fill .1106       "
 echo "==========================="
 
+for n in `seq 1 $NRUNS`;
+do
 python3 test3d_clusters.py 0.125 2
-for n in `seq 1 $NRUNS`;
-do
 echo "Start $BIN ($n/$NRUNS)..."
 evaluate
 echo "$BIN finished"
 done
 
+for n in `seq 1 $NRUNS`;
+do
 python3 test3d_clusters.py 0.125 4
-for n in `seq 1 $NRUNS`;
-do
 echo "Start $BIN ($n/$NRUNS)..."
 evaluate
 echo "$BIN finished"
 done
 
-python3 test3d_clusters.py 0.125 6
 for n in `seq 1 $NRUNS`;
 do
+python3 test3d_clusters.py 0.125 6
 echo "Start $BIN ($n/$NRUNS)..."
 evaluate
 echo "$BIN finished"
@@ -85,25 +85,25 @@ echo "     TEST 3D CLUSTERS      "
 echo "          Fill 0.512       "
 echo "==========================="
 
+for n in `seq 1 \$NRUNS`;
+do
 python3 test3d_clusters.py 0.6 5
-for n in `seq 1 \$NRUNS`;
-do
 echo "Start $BIN ($n/$NRUNS)..."
 evaluate
 echo "$BIN finished"
 done
 
+for n in `seq 1 \$NRUNS`;
+do
 python3 test3d_clusters.py 0.6 10
-for n in `seq 1 \$NRUNS`;
-do
 echo "Start $BIN ($n/$NRUNS)..."
 evaluate
 echo "$BIN finished"
 done
 
-python3 test3d_clusters.py 0.6 20
 for n in `seq 1 \$NRUNS`;
 do
+python3 test3d_clusters.py 0.6 20
 echo "Start $BIN ($n/$NRUNS)..."
 evaluate
 echo "$BIN finished"
@@ -114,9 +114,9 @@ echo "     TEST 3D CORNERS       "
 echo "          Fill 0.112632    "
 echo "==========================="
 
-python3 test3d_corners.py 0.78
 for n in `seq 1 \$NRUNS`;
 do
+python3 test3d_corners.py 0.78
 echo "Start $BIN ($n/$NRUNS)..."
 evaluate
 echo "$BIN finished"
@@ -127,9 +127,9 @@ echo "     TEST 3D CORNERS       "
 echo "          Fill 0.0288      "
 echo "==========================="
 
-python3 test3d_corners.py 0.5
 for n in `seq 1 \$NRUNS`;
 do
+python3 test3d_corners.py 0.5
 echo "Start $BIN ($n/$NRUNS)..."
 evaluate
 echo "$BIN finished"
@@ -139,9 +139,9 @@ echo "==========================="
 echo "     TEST 3D DIAGONAL      "
 echo "          Fill 0.117696    "
 echo "==========================="
-python3 test3d_diagonal.py 0.47
 for n in `seq 1 \$NRUNS`;
 do
+python3 test3d_diagonal.py 0.47
 echo "Start $BIN ($n/$NRUNS)..."
 evaluate
 echo "$BIN finished"
@@ -153,9 +153,9 @@ echo "     TEST 3D DIAGONAL     "
 echo "          Fill 0.5         "
 echo "==========================="
 
-python3 test3d_corners.py 0.84
 for n in `seq 1 \$NRUNS`;
 do
+python3 test3d_corners.py 0.84
 echo "Start $BIN ($n/$NRUNS)..."
 evaluate
 echo "$BIN finished"
