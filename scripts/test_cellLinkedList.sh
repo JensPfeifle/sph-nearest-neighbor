@@ -12,14 +12,14 @@ function ctrl_c() {
 NRUNS=5
 TESTDIR=./test/test_cll  # no trailing slash!
 BIN="fr_cellLinkedList"
-BIN_ARGS = "-d 3 -max 250000  -df data.pts -r 0.0003"
+BIN_ARGS = "-d 3 -max 250000 -nn 50 -0.0 -df data.pts -r 0.0003"
 
 mkdir -pv $TESTDIR
 
 # clean up testdir
 rm  -r $TESTDIR/*
 
-For file in $BIN; do
+for file in $BIN; do
     cp ./bin/${file} $TESTDIR
 done
 
@@ -35,10 +35,9 @@ echo "==========================="
 echo "     TEST 3D FULL         "
 echo "          Fill 1.0        "
 echo "==========================="
-
-python3 test3d_full.py
 for n in `seq 1 $NRUNS`;
 do
+python3 test3d_full.py
 echo "Start $BIN ($n/$NRUNS)..."
 ./$BIN $BIN_ARGS
 echo "$BIN finished"

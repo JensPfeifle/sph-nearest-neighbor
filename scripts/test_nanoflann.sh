@@ -10,16 +10,16 @@ function ctrl_c() {
 }
 
 NRUNS=5
-TESTDIR=./test/test_cll  # no trailing slash!
-BIN="fr_cellLinkedList"
-BIN_ARGS = "-d 3 -max 250000  -df data.pts -r 0.0003"
+TESTDIR=./test/test_nanoflann  # no trailing slash!
+BIN="fr_nanoflann"
+BIN_ARGS="-max 250000 -df data.pts -r 0.0003"
 
 mkdir -pv $TESTDIR
 
 # clean up testdir
 rm  -r $TESTDIR/*
 
-For file in $BIN; do
+for file in $BIN; do
     cp ./bin/${file} $TESTDIR
 done
 
@@ -45,8 +45,8 @@ echo "$BIN finished"
 done
 
 echo "==========================="
-echo "     TEST 3D CLUSTERS       "
-echo "          Fill .1106           "
+echo "     TEST 3D CLUSTERS      "
+echo "          Fill .1106       "
 echo "==========================="
 
 python3 test3d_clusters.py 0.125 2
@@ -157,4 +157,4 @@ done
 
 echo "Results for this run are in stats.csv in $TESTDIR"
 mkdir -p ../results
-cp -v --backup=numbered .stats.csv ../results/stats_$BIN.csv
+cp -v --backup=numbered ./stats.csv ../results/stats_$BIN.csv

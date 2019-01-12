@@ -2,15 +2,16 @@
 # pwd = /home/jens/git/sph-nearest-neighbor
 
 NRUNS=3
+TESTDIR=./test  # no trailing slash!
 
-mkdir -p ./test
-rm -rf ./test/*
+mkdir -p $TESTDIR
+rm -rf $TESTDIR/*
 
-cp ./bin/* ./test
+cp ./bin/* ./testbinfiles="fr_ann"
+scriptfiles="config.py test3d_full.py test3d_clusters.py test3d_corners.py test3d_diagonal.py"
 
-files="config.py test3d_full.py test3d_clusters.py test3d_corners.py test3d_diagonal.py"
-for file in $files; do
-    cp ./scripts/${file} ./test
+for file in $scriptfiles; do
+    cp ./scripts/${file} $TESTDIR
 done
 
 cd ./test
