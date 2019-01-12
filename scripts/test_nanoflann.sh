@@ -9,6 +9,14 @@ function ctrl_c() {
     exit
 }
 
+# execution function
+function evaluate {
+    echo "calling $BIN $BIN_ARGS"
+    /usr/bin/time -f '%M' -o /tmp/frnntmpmem evaluate
+    printf ",$(cat /tmp/frnntmpmem)\n" >> stats.csv
+}
+
+
 NRUNS=5
 TESTDIR=./test/test_nanoflann  # no trailing slash!
 BIN="fr_nanoflann"
@@ -40,7 +48,7 @@ python3 test3d_full.py
 for n in `seq 1 $NRUNS`;
 do
 echo "Start $BIN ($n/$NRUNS)..."
-./$BIN $BIN_ARGS
+evaluate
 echo "$BIN finished"
 done
 
@@ -53,7 +61,7 @@ python3 test3d_clusters.py 0.125 2
 for n in `seq 1 $NRUNS`;
 do
 echo "Start $BIN ($n/$NRUNS)..."
-./$BIN $BIN_ARGS
+evaluate
 echo "$BIN finished"
 done
 
@@ -61,7 +69,7 @@ python3 test3d_clusters.py 0.125 4
 for n in `seq 1 $NRUNS`;
 do
 echo "Start $BIN ($n/$NRUNS)..."
-./$BIN $BIN_ARGS
+evaluate
 echo "$BIN finished"
 done
 
@@ -69,7 +77,7 @@ python3 test3d_clusters.py 0.125 6
 for n in `seq 1 $NRUNS`;
 do
 echo "Start $BIN ($n/$NRUNS)..."
-./$BIN $BIN_ARGS
+evaluate
 echo "$BIN finished"
 done
 
@@ -82,7 +90,7 @@ python3 test3d_clusters.py 0.6 5
 for n in `seq 1 \$NRUNS`;
 do
 echo "Start $BIN ($n/$NRUNS)..."
-./$BIN $BIN_ARGS
+evaluate
 echo "$BIN finished"
 done
 
@@ -90,7 +98,7 @@ python3 test3d_clusters.py 0.6 10
 for n in `seq 1 \$NRUNS`;
 do
 echo "Start $BIN ($n/$NRUNS)..."
-./$BIN $BIN_ARGS
+evaluate
 echo "$BIN finished"
 done
 
@@ -98,7 +106,7 @@ python3 test3d_clusters.py 0.6 20
 for n in `seq 1 \$NRUNS`;
 do
 echo "Start $BIN ($n/$NRUNS)..."
-./$BIN $BIN_ARGS
+evaluate
 echo "$BIN finished"
 done
 
@@ -111,7 +119,7 @@ python3 test3d_corners.py 0.78
 for n in `seq 1 \$NRUNS`;
 do
 echo "Start $BIN ($n/$NRUNS)..."
-./$BIN $BIN_ARGS
+evaluate
 echo "$BIN finished"
 done
 
@@ -124,7 +132,7 @@ python3 test3d_corners.py 0.5
 for n in `seq 1 \$NRUNS`;
 do
 echo "Start $BIN ($n/$NRUNS)..."
-./$BIN $BIN_ARGS
+evaluate
 echo "$BIN finished"
 done
 
@@ -136,7 +144,7 @@ python3 test3d_diagonal.py 0.47
 for n in `seq 1 \$NRUNS`;
 do
 echo "Start $BIN ($n/$NRUNS)..."
-./$BIN $BIN_ARGS
+evaluate
 echo "$BIN finished"
 done
 
@@ -150,7 +158,7 @@ python3 test3d_corners.py 0.84
 for n in `seq 1 \$NRUNS`;
 do
 echo "Start $BIN ($n/$NRUNS)..."
-./$BIN $BIN_ARGS
+evaluate
 echo "$BIN finished"
 done
 
