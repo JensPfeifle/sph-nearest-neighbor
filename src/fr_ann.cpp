@@ -77,7 +77,7 @@ int writeStats(const double data[], const int numstats)
 	{
 		myfile << "," << data[i];
 	}
-	myfile << "," << INTERACTIONLISTMETHOD << "\n";
+	myfile << "," << INTERACTIONLISTMETHOD;
 	myfile.close();
 	return 0;
 }

@@ -16,7 +16,7 @@ using namespace std;
 // 0: naive (double for loop) search
 // 1: sorted search
 //----------------------------------------------------------------------
-#define INTERACTIONLISTMETHOD NONE
+#define INTERACTIONLISTMETHOD -1
 // This version of fr_ann does not generate interaction lists!
 
 //----------------------------------------------------------------------
@@ -78,7 +78,7 @@ int writeStats(const double data[], const int numstats)
 	{
 		myfile << "," << data[i];
 	}
-	myfile << "," << INTERACTIONLISTMETHOD << "\n";
+	myfile << "," << INTERACTIONLISTMETHOD;
 	myfile.close();
 	return 0;
 }
@@ -184,7 +184,7 @@ int main(int argc, char **argv)
 			}
 			check_interaction_exists(p1, p2, nInteractionPairs, queryPtIdx, nnIdx[n]);
 		}
-		*/
+		**/
 		finish = std::chrono::high_resolution_clock::now();
 		listBuild_total = listBuild_total + (finish - start);
 		//std::cout << i << "\n";
