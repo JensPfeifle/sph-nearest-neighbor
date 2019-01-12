@@ -1,10 +1,6 @@
 #!/usr/bin/python3
 import datetime
-import sys
 from pathlib import Path
-from typing import List, Tuple
-
-import matplotlib.pyplot as plt
 import numpy as np
 
 import config as CONF
@@ -29,12 +25,13 @@ def write_stats(ndatapts: int, actuallfill: float,
         print("Test3d: creating stats file")
         with open(statsfilepath, 'w') as f:
             f.write('time,sizex,sizey,sizez,filltype,fill,ndatapts,'
-                    + 'ttotal,tksearch,tfrsearch,tprocessing\n')
+                    + 'ttotal,tksearch,tfrsearch,tprocessing,listmethod,memory\n')
     with open(statsfilepath, 'a') as f:
         time = datetime.datetime.now().isoformat()
         data = [time, CONF.Lx, CONF.Ly, CONF.Lz, filltype, fill, ndatapts]
         datastr = ",".join([str(d) for d in data])
         f.write(datastr)
+
 
 def make_fill():
 
@@ -50,10 +47,10 @@ def make_fill():
     for i in range(n[0]):
         for j in range(n[1]):
             for k in range(n[2]):
-                    points_x[p] = i*CONF.dx
-                    points_y[p] = j*CONF.dx
-                    points_z[p] = k*CONF.dx
-                    p = p + 1
+                points_x[p] = i*CONF.dx
+                points_y[p] = j*CONF.dx
+                points_z[p] = k*CONF.dx
+                p = p + 1
 
     return (points_x, points_y, points_z)
 

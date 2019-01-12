@@ -22,19 +22,19 @@ def write_file(x: [], y: [], z: [], filename='output.txt'):
 def write_datafile(data_x, data_y, data_z, filename="data.pts"):
     write_file(data_x, data_y, data_z, str(filename))
 
+
 def write_stats(ndatapts: int, actuallfill: float,
                 statsfilepath: Path = Path("./stats.csv")):
     if not statsfilepath.is_file():
         print("Test3d: creating stats file")
         with open(statsfilepath, 'w') as f:
             f.write('time,sizex,sizey,sizez,filltype,fill,ndatapts,'
-                    + 'ttotal,tksearch,tfrsearch,tprocessing\n')
+                    + 'ttotal,tksearch,tfrsearch,tprocessing,listmethod,memory\n')
     with open(statsfilepath, 'a') as f:
         time = datetime.datetime.now().isoformat()
         data = [time, CONF.Lx, CONF.Ly, CONF.Lz, filltype, fill, ndatapts]
         datastr = ",".join([str(d) for d in data])
         f.write(datastr)
-
 
 
 def make_fill(fill: float):

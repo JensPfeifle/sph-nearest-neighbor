@@ -22,19 +22,19 @@ def write_file(x: [], y: [], z: [], filename='output.txt'):
 def write_datafile(data_x, data_y, data_z, filename="data.pts"):
     write_file(data_x, data_y, data_z, str(filename))
 
+
 def write_stats(ndatapts: int, actuallfill: float,
                 statsfilepath: Path = Path("./stats.csv")):
     if not statsfilepath.is_file():
         print("Test3d: creating stats file")
         with open(statsfilepath, 'w') as f:
             f.write('time,sizex,sizey,sizez,filltype,fill,ndatapts,'
-                    + 'ttotal,tksearch,tfrsearch,tprocessing\n')
+                    + 'ttotal,tksearch,tfrsearch,tprocessing,listmethod,memory\n')
     with open(statsfilepath, 'a') as f:
         time = datetime.datetime.now().isoformat()
         data = [time, CONF.Lx, CONF.Ly, CONF.Lz, filltype, fill, ndatapts]
         datastr = ",".join([str(d) for d in data])
         f.write(datastr)
-
 
 
 def make_fill(fill: float):
@@ -51,7 +51,7 @@ def make_fill(fill: float):
     # fill a fraction of the field
     #nx, ny, nz = [int(F*n) for n in field.shape]
     nx, ny, nz = field.shape
-    print(nx,ny,nz)
+    print(nx, ny, nz)
     for i in range(nx):
         for j in range(ny):
             for k in range(nz):
@@ -63,13 +63,13 @@ def make_fill(fill: float):
     # field is 1/8th of the total volume
     # fill another eighth across the x axis
     zeros = np.zeros(field.shape)
-    field = np.concatenate([field, field[::-1, : , :]], axis=0)
+    field = np.concatenate([field, field[::-1, :, :]], axis=0)
     # fill a quarter across the y axis
     #zeros = np.zeros(field.shape)
-    field = np.concatenate([field, field[:, ::-1 , :]], axis=1)
+    field = np.concatenate([field, field[:, ::-1, :]], axis=1)
     # then mirror the half of the field we currently have over each axis
     # and set it to be the top half of the field
-    field = np.concatenate([field,field[:, : , ::-1]], axis=2)
+    field = np.concatenate([field, field[:, :, ::-1]], axis=2)
 
     npoints = int(field.sum())
     points_x = np.ndarray(npoints)

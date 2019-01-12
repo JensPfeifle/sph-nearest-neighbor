@@ -29,7 +29,7 @@ def write_stats(ndatapts: int, actuallfill: float,
         print("Test3d: creating stats file")
         with open(statsfilepath, 'w') as f:
             f.write('time,sizex,sizey,sizez,filltype,fill,ndatapts,'
-                    + 'ttotal,tksearch,tfrsearch,tprocessing\n')
+                    + 'ttotal,tksearch,tfrsearch,tprocessing,listmethod,memory\n')
     with open(statsfilepath, 'a') as f:
         time = datetime.datetime.now().isoformat()
         data = [time, CONF.Lx, CONF.Ly, CONF.Lz, filltype, fill, ndatapts]
