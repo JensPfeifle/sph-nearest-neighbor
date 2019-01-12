@@ -7,6 +7,9 @@ from typing import List, Tuple
 import config as CONF
 import sys
 
+"""
+Reads datapts from the file data.pts and plots them in an interactive 3D plot.
+"""
 
 def read_datapts(file="data.pts"):
     with open(file, 'r') as f:

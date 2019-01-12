@@ -4,6 +4,13 @@ from typing import List, Tuple
 import config as CONF
 import sys
 
+"""
+Reads datapts from the file data.pts and plots them in multiple 2D plots.
+This is useful for viewing the particle arangement from different directions.
+It is also quite a bit faster than the 3D plots.. ;-)
+"""
+
+
 def read_datapts(file="data.pts"):
     with open(file, 'r') as f:
         lines = f.readlines()
