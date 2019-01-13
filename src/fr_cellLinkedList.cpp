@@ -70,7 +70,6 @@ int writeStats(const double data[], const int numstats)
 	{
 		myfile << "," << data[i];
 	}
-	myfile << "," << "-1";
 	myfile.close();
 	return 0;
 }
@@ -255,8 +254,8 @@ int main(int argc, char **argv)
 
 	writeOutput(partPart_p1, partPart_p2);
 
-	const int numstats = 1;
-	double stats[numstats] = {ttotal};
+	const int numstats = 5;
+	double stats[numstats] = {ttotal,0,0,0,-1};
 	writeStats(stats, numstats);
 
 	return EXIT_SUCCESS;

@@ -78,7 +78,6 @@ int writeStats(const double data[], const int numstats)
 	{
 		myfile << "," << data[i];
 	}
-	myfile << "," << INTERACTIONLISTMETHOD;
 	myfile.close();
 	return 0;
 }
@@ -201,12 +200,12 @@ int main(int argc, char **argv)
 	double tprocessing = listBuild_total.count();
 
 	std::cout << ttotal << "\n";
-
+	
 	assert(p1.size() == p2.size());
 	writeOutput(p1, p2);
 
-	const int numstats = 4;
-	double stats[numstats] = {ttotal, tksearch, tfrsearch, tprocessing};
+	const int numstats = 5;
+	double stats[numstats] = {ttotal, tksearch, tfrsearch, tprocessing, -1};
 	writeStats(stats, numstats);
 
 	delete[] nnIdx; // clean things up

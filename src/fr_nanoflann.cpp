@@ -73,7 +73,6 @@ int writeStats(const double data[], const int numstats)
 	{
 		myfile << "," << data[i];
 	}
-	myfile << ",-1" << "\n";
 	myfile.close();
 	return 0;
 }
