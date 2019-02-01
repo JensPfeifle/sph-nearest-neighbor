@@ -8,6 +8,9 @@ all: fr_ann fr_ann_nolist fr_ann_query fr_cellLinkedList fr_nanoflann
 fr_ann_nolist: fr_ann_nolist.cpp
 	$(CC) $(CFLAGS) fr_ann_nolist.cpp -o$(PRJPATH)/bin/fr_ann_nolist -I$(PRJPATH)/ann_1.1.2/include -L$(PRJPATH)/ann_1.1.2/lib -lANN
 
+fr_ann_bdtree_nolist: fr_ann_bdtree_nolist.cpp
+	$(CC) $(CFLAGS) fr_ann_bdtree_nolist.cpp -o$(PRJPATH)/bin/fr_ann_bdtree_nolist -I$(PRJPATH)/ann_1.1.2/include -L$(PRJPATH)/ann_1.1.2/lib -lANN
+
 fr_ann: fr_ann.cpp
 	$(CC) $(CFLAGS) fr_ann.cpp -o$(PRJPATH)/bin/fr_ann -I$(PRJPATH)/ann_1.1.2/include -L$(PRJPATH)/ann_1.1.2/lib -lANN
 
