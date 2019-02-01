@@ -1,31 +1,44 @@
 \babel@toc {english}{}
 \babel@toc {english}{}
-\contentsline {chapter}{List of Symbols}{ii}{dummy.1}
+\contentsline {chapter}{List of Symbols}{iii}{dummy.1}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
-\contentsline {chapter}{\numberline {2}Motivation}{2}{chapter.2}
-\contentsline {chapter}{\numberline {3}Objective}{3}{chapter.3}
-\contentsline {chapter}{\numberline {4}Methods and Tools}{4}{chapter.4}
-\contentsline {section}{\numberline {4.1}The ANN Library}{4}{section.4.1}
-\contentsline {chapter}{\numberline {5}Ergebnisse und Diskussion}{5}{chapter.5}
-\contentsline {chapter}{\numberline {6}Zusammenfassung und Ausblick}{6}{chapter.6}
-\contentsline {chapter}{\numberline {7}Abschlussarbeiten am ITS}{7}{chapter.7}
-\contentsline {section}{\numberline {7.1}Allgemeines}{7}{section.7.1}
-\contentsline {section}{\numberline {7.2}Einleitung}{8}{section.7.2}
-\contentsline {section}{\numberline {7.3}Stand der Forschung}{8}{section.7.3}
-\contentsline {section}{\numberline {7.4}Grundlagen}{8}{section.7.4}
-\contentsline {section}{\numberline {7.5}Material und Methoden}{9}{section.7.5}
-\contentsline {section}{\numberline {7.6}Ergebnisse und Diskussion}{9}{section.7.6}
-\contentsline {section}{\numberline {7.7}Zusammenfassung und Ausblick}{9}{section.7.7}
-\contentsline {section}{\numberline {7.8}Anhang}{10}{section.7.8}
-\contentsline {chapter}{\numberline {8}Weitere Hinweise}{11}{chapter.8}
-\contentsline {section}{\numberline {8.1}Sprachliche Gestaltung}{11}{section.8.1}
-\contentsline {section}{\numberline {8.2}Gliederung}{12}{section.8.2}
-\contentsline {subsection}{\numberline {8.2.1}\IeC {\"u}berfl\IeC {\"u}ssige \IeC {\"U}berschrift}{12}{subsection.8.2.1}
-\contentsline {section}{\numberline {8.3}Literaturverweise}{12}{section.8.3}
-\contentsline {section}{\numberline {8.4}Abbildungen und Tabellen}{12}{section.8.4}
-\contentsline {section}{\numberline {8.5}Diagramme}{14}{section.8.5}
-\contentsline {section}{\numberline {8.6}Gleichungen}{16}{section.8.6}
-\contentsline {chapter}{References}{17}{dummy.2}
-\contentsline {chapter}{Appendix}{18}{chapter*.7}
-\contentsline {section}{\numberline {A.1}Anhang 1}{18}{section.A.1}
-\contentsline {section}{\numberline {A.2}Anhang 2}{18}{section.A.2}
+\contentsline {chapter}{\numberline {2}Objective}{2}{chapter.2}
+\contentsline {section}{\numberline {2.1}Motivation}{2}{section.2.1}
+\contentsline {section}{\numberline {2.2}Problem}{2}{section.2.2}
+\contentsline {section}{\numberline {2.3}Objective}{2}{section.2.3}
+\contentsline {chapter}{\numberline {3}Neighbor Search Methods}{3}{chapter.3}
+\contentsline {section}{\numberline {3.1}Cell Linked-Lists Method}{3}{section.3.1}
+\contentsline {section}{\numberline {3.2}The {\itshape ANN} Library}{3}{section.3.2}
+\contentsline {section}{\numberline {3.3}The {\itshape nanoflann} Library}{4}{section.3.3}
+\contentsline {chapter}{\numberline {4}Project Structure and Requirements}{5}{chapter.4}
+\contentsline {section}{\numberline {4.1}Requirements}{5}{section.4.1}
+\contentsline {section}{\numberline {4.2}Directory Structure}{5}{section.4.2}
+\contentsline {section}{\numberline {4.3}Search Methods}{5}{section.4.3}
+\contentsline {section}{\numberline {4.4}Test Case Scripts}{6}{section.4.4}
+\contentsline {section}{\numberline {4.5}Jupyter Notebooks for Analysis}{6}{section.4.5}
+\contentsline {chapter}{\numberline {5}Test Cases \& Benchmarking Methodology}{7}{chapter.5}
+\contentsline {section}{\numberline {5.1}Running Tests}{7}{section.5.1}
+\contentsline {section}{\numberline {5.2}Test Cases}{7}{section.5.2}
+\contentsline {section}{\numberline {5.3}Benchmarking}{7}{section.5.3}
+\contentsline {chapter}{\numberline {6}Results and Discussion}{8}{chapter.6}
+\contentsline {chapter}{\numberline {7}Summary and Outlook}{18}{chapter.7}
+\contentsline {chapter}{\numberline {8}Abschlussarbeiten am ITS}{19}{chapter.8}
+\contentsline {section}{\numberline {8.1}Allgemeines}{19}{section.8.1}
+\contentsline {section}{\numberline {8.2}Einleitung}{20}{section.8.2}
+\contentsline {section}{\numberline {8.3}Stand der Forschung}{20}{section.8.3}
+\contentsline {section}{\numberline {8.4}Grundlagen}{20}{section.8.4}
+\contentsline {section}{\numberline {8.5}Material und Methoden}{21}{section.8.5}
+\contentsline {section}{\numberline {8.6}Ergebnisse und Diskussion}{21}{section.8.6}
+\contentsline {section}{\numberline {8.7}Zusammenfassung und Ausblick}{21}{section.8.7}
+\contentsline {section}{\numberline {8.8}Anhang}{22}{section.8.8}
+\contentsline {chapter}{\numberline {9}Weitere Hinweise}{23}{chapter.9}
+\contentsline {section}{\numberline {9.1}Sprachliche Gestaltung}{23}{section.9.1}
+\contentsline {section}{\numberline {9.2}Gliederung}{24}{section.9.2}
+\contentsline {subsection}{\numberline {9.2.1}\IeC {\"u}berfl\IeC {\"u}ssige \IeC {\"U}berschrift}{24}{subsection.9.2.1}
+\contentsline {section}{\numberline {9.3}Literaturverweise}{24}{section.9.3}
+\contentsline {section}{\numberline {9.4}Abbildungen und Tabellen}{24}{section.9.4}
+\contentsline {section}{\numberline {9.5}Gleichungen}{26}{section.9.5}
+\contentsline {chapter}{References}{27}{dummy.2}
+\contentsline {chapter}{Appendix}{28}{chapter*.19}
+\contentsline {section}{\numberline {A.1}Anhang 1}{28}{section.A.1}
+\contentsline {section}{\numberline {A.2}Anhang 2}{28}{section.A.2}

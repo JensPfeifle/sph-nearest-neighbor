@@ -125,44 +125,11 @@ Abbildungen helfen dem Autor, seine Erkenntnisse zu erläutern oder zu belegen. 
 %		Spalte 1 & Spalte 2 & Spalte 3 \\
 %		\hline
 %		1 & 2 & 3 \\
-%		\hline
-%		1 & 2 & 3 \\
-%		\hline
-%		1 & 2 & 3 \\
-%		\hline
-%	\end{tabular}
-%	\label{tab:test}
-%\end{table}
-
-
-\begin{table}[htbp]
-	\centering
-	\renewcommand{\arraystretch}{1.3} % Größerer Zeilenabstand
-	\captionabove{Für die Modellierung verwendete Randbedingungen}
-	\begin{tabular}{@{}lll@{}}
-		\toprule
-		Parameter           &   Variable   &           Value            \\ \midrule
-		Hot gas temperature & $T_\text{h}$ &     \SI{490}{\kelvin}      \\
-		Coolant temperature & $T_\text{c}$ &     \SI{270}{\kelvin}      \\
-		Inlet Re            &     $Re$     &      $4.66\times10^5$      \\
-		Inlet Velocity      & $u_\text{h}$ & \SI{33}{\meter\per\second} \\
-		Tu Intensity        &     $Tu$     &     \SI{10}{\percent}      \\
-		Operating Points    &     $DP$     &             1              \\ \bottomrule
-	\end{tabular}
-	\label{tab:experiment-parameters}
-\end{table}
-
-
-\newpage
-
-\section{Diagramme}
-\label{SECTION:Diagramme}
-
-Alle gezeigten Diagramme sollten ein einheitliches Erscheinungsbild aufweisen. Achsen sind im Allgemeinen mit der physikalischen Größe und ihrer Einheit sowie Werte der physikalischen Größe zu beschriften. Schriftzeichen in Diagrammen sind ungefähr so groß wie im Text. Skalierung der Achsen sinnvoll wählen, um leeren Raum im Diagramm zu vermeiden. Es ist unter Umständen sinnvoll, die Skalierung einer Achse über mehrere Diagramme hinweg gleich zu wählen, wenn die Daten in den Diagrammen vergleichbar sein sollen (siehe Abbildung~\ref{fig:several_graphics}). Eventuell ist auch eine logarithmische Auftragung sinnvoll. Diagramme besitzen eine Legende. Sinnvolle min./max. Werte festlegen (nicht 0,2845 bis 9,385, sondern besser 0 bis 10). Ein Raster (\glqq grid\grqq) kann hilfreich sein. Diagramme farblich so gestalten, dass sie auch in schwarzweiß lesbar sind. In Abbildung \ref{fig:several_graphics} sind neben der farblichen Gestaltung zusätzlich unterschiedliche Marker und Linienarten eingesetzt. In der Regel ist der Hintergrund weiß, Sonderformatierungen (Hintergründe, Schriftarten) sind nur einzusetzen, wenn Vorteile daraus entstehen. Bei der Farbgebung auf die Erscheinungsform achten, zum Beispiel unterscheidet sich die Darstellung auf dem Beamer von der einer schriftlichen Ausarbeitung. Diagramme besitzen keinen alles umschließenden Rahmen. Abbildung möglichst einfach und leicht verständlich gestalten, in der Regel nicht mehr als drei Linien im Diagramm.
+%		\hlin den Diagrammen vergleichbar sein sollen (siehe Abbildung~\ref{fig:several_graphics}). Eventuell ist auch eine logarithmische Auftragung sinnvoll. Diagramme besitzen eine Legende. Sinnvolle min./max. Werte festlegen (nicht 0,2845 bis 9,385, sondern besser 0 bis 10). Ein Raster (\glqq grid\grqq) kann hilfreich sein. Diagramme farblich so gestalten, dass sie auch in schwarzweiß lesbar sind. In Abbildung \ref{fig:several_graphics} sind neben der farblichen Gestaltung zusätzlich unterschiedliche Marker und Linienarten eingesetzt. In der Regel ist der Hintergrund weiß, Sonderformatierungen (Hintergründe, Schriftarten) sind nur einzusetzen, wenn Vorteile daraus entstehen. Bei der Farbgebung auf die Erscheinungsform achten, zum Beispiel unterscheidet sich die Darstellung auf dem Beamer von der einer schriftlichen Ausarbeitung. Diagramme besitzen keinen alles umschließenden Rahmen. Abbildung möglichst einfach und leicht verständlich gestalten, in der Regel nicht mehr als drei Linien im Diagramm.
 
 \begin{figure}[htpb]
 	\centering
-	\subcaptionbox{$x = \SI{0,7}{\mm}$} {\includegraphics[width=0.48\columnwidth]{bilder/wieth_2016_2_6}}\hfill
+	\subcaptionbox{$x = \SI{0,7}{\mm}$} {\includeraphics[width=0.48\columnwidth]{bilder/wieth_2016_2_6}}\hfill
 	\subcaptionbox{$x = \SI{1,0}{\mm}$}{\includegraphics[width=0.48\columnwidth]{bilder/wieth_2016_2_6}}
 	\subcaptionbox{$x = \SI{1,1}{\mm}$} {\includegraphics[width=0.48\columnwidth]{bilder/wieth_2016_3_6}}\hfill
 	\subcaptionbox{$x = \SI{2.0}{\mm}$}{\includegraphics[width=0.48\columnwidth]{bilder/wieth_2016_4_6}}

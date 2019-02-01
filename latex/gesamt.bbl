@@ -1,4 +1,4 @@
-\begin{thebibliography}{8}
+\begin{thebibliography}{11}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{Baldauf(2001)}]{baldauf2001}
@@ -26,6 +26,15 @@ Keller, M., Braun, S., Wieth, L., Chaussonnet, G., Dauch, T., Koch, R.,
   Lubrication for Spur Gears using Smoothed Particle Hydrodynamics\/}.
 \newblock In: {\em Proceedings of the 11th international SPHERIC Workshop\/}.
 
+\bibitem[{Mount und Arya(2010{\natexlab{a}})}]{ANN10}
+Mount, David~M. und Arya, Sunil (2010{\natexlab{a}}): {\em ANN: A Library for
+  Approximate Nearest Neighbor Searching\/}.
+\newblock http://www.cs.umd.edu/~mount/ANN/.
+
+\bibitem[{Mount und Arya(2010{\natexlab{b}})}]{Mount10}
+Mount, David~M. und Arya, Sunil (2010{\natexlab{b}}): {\em ANN Programming
+  Manual, V1.1.1\/}.
+
 \bibitem[{Schoof(2014)}]{schoof2014}
 Schoof, E. (2014): {\em Grobstruktursimulation einer Filmkühlbohrung mit Hilfe
   von OpenFOAM\/}.
@@ -36,6 +45,10 @@ Schoof, E. (2014): {\em Grobstruktursimulation einer Filmkühlbohrung mit Hilfe
 Schrüfer, E. (1990): {\em {Signalverarbeitung -- Numerische Verarbeitung
   digitaler Signale}\/}.
 \newblock Carl Hanser Verlag, München / Wien.
+
+\bibitem[{Weygand(2018)}]{Weygand18}
+Weygand, Daniel (2018): {\em Lecture notes in Wissenschaftliches Progammieren
+  fuer Ingenieure\/}.
 
 \bibitem[{Wieth et~al.(2016)Wieth, Kelemen, Braun, Koch, Bauer und
   Schuchmann}]{wieth2016}
