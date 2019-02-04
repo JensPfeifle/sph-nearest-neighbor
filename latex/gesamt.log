@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.1.7)  30 JAN 2019 19:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.2.2)  4 FEB 2019 13:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1739,12 +1739,12 @@ LaTeX Font Info:    Try loading font information for OT1+lmtt on input line 54.
 File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) (./sonstiges/ersteseiten.tex
 (./sonstiges/titelseite.tex
-<sonstiges/its_logo.png, id=172, 56.79218pt x 56.79218pt>
+<sonstiges/its_logo.png, id=176, 56.79218pt x 56.79218pt>
 File: sonstiges/its_logo.png Graphic file (type png)
 <use sonstiges/its_logo.png>
 Package pdftex.def Info: sonstiges/its_logo.png  used on input line 19.
 (pdftex.def)             Requested size: 56.79202pt x 56.79202pt.
-<sonstiges/kit_logo.pdf, id=174, 185.493pt x 96.36pt>
+<sonstiges/kit_logo.pdf, id=178, 185.493pt x 96.36pt>
 File: sonstiges/kit_logo.pdf Graphic file (type pdf)
 <use sonstiges/kit_logo.pdf>
 Package pdftex.def Info: sonstiges/kit_logo.pdf  used on input line 19.
@@ -1821,6 +1821,10 @@ cally within a char-ac-ter-is-tic ra-dius ("smooth-
 
 ]
 chapter 3.
+
+Package natbib Warning: Citation `Weygand18' on page 3 undefined on input line 
+50.
+
 LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <14.4> not available
 (Font)              Font shape `T1/ptm/b/it' tried instead on input line 56.
 
@@ -1840,126 +1844,152 @@ chapter 4.
 
 LaTeX Warning: Reference `FIXME' on page 5 undefined on input line 84.
 
-<figures/project_folders.pdf, id=287, 611.88597pt x 126.87401pt>
+<figures/project_folders.pdf, id=290, 611.88597pt x 126.87401pt>
 File: figures/project_folders.pdf Graphic file (type pdf)
 <use figures/project_folders.pdf>
 Package pdftex.def Info: figures/project_folders.pdf  used on input line 88.
 (pdftex.def)             Requested size: 341.43306pt x 70.79533pt.
 [5
 
- <./figures/project_folders.pdf>]
-
-LaTeX Warning: Reference `FIXME' on page 6 undefined on input line 103.
-
-[6]
+ <./figures/project_folders.pdf>] [6]
 chapter 5.
-<figures/flowdiagram.pdf, id=304, 881.69403pt x 386.24298pt>
-File: figures/flowdiagram.pdf Graphic file (type pdf)
-<use figures/flowdiagram.pdf>
-Package pdftex.def Info: figures/flowdiagram.pdf  used on input line 126.
-(pdftex.def)             Requested size: 341.43306pt x 149.56741pt.
+<figures/testcase_clusters2_11.pdf, id=309, 447.55931pt x 271.79883pt>
+File: figures/testcase_clusters2_11.pdf Graphic file (type pdf)
+<use figures/testcase_clusters2_11.pdf>
+Package pdftex.def Info: figures/testcase_clusters2_11.pdf  used on input line 
+132.
+(pdftex.def)             Requested size: 447.5582pt x 271.79816pt.
 [7
 
- <./figures/flowdiagram.pdf>]
+ <./figures/testcase_clusters2_11.pdf>]
+<figures/testcase_clusters6_11.pdf, id=331, 447.55931pt x 271.79883pt>
+File: figures/testcase_clusters6_11.pdf Graphic file (type pdf)
+<use figures/testcase_clusters6_11.pdf>
+Package pdftex.def Info: figures/testcase_clusters6_11.pdf  used on input line 
+141.
+(pdftex.def)             Requested size: 447.5582pt x 271.79816pt.
+<figures/testcase_corners_11.pdf, id=333, 447.55931pt x 271.79883pt>
+File: figures/testcase_corners_11.pdf Graphic file (type pdf)
+<use figures/testcase_corners_11.pdf>
+Package pdftex.def Info: figures/testcase_corners_11.pdf  used on input line 15
+0.
+(pdftex.def)             Requested size: 447.5582pt x 271.79816pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/testcase_diagonal_11.pdf, id=335, 447.55931pt x 271.79883pt>
+File: figures/testcase_diagonal_11.pdf Graphic file (type pdf)
+<use figures/testcase_diagonal_11.pdf>
+Package pdftex.def Info: figures/testcase_diagonal_11.pdf  used on input line 1
+59.
+(pdftex.def)             Requested size: 447.5582pt x 271.79816pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[8 <./figures/testcase_clusters6_11.pdf>]
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 169.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 13.24796pt on input line 169.
+ [9 <./figures/testcase_corners_11.pdf> <./figures/testcase_diagonal_11.pdf
+
+pdfTeX warning: pdflatex (file ./figures/testcase_diagonal_11.pdf): PDF inclusi
+on: multiple pdfs with page group included in a single page
+>]
+<figures/flowdiagram.pdf, id=390, 881.69403pt x 386.24298pt>
+File: figures/flowdiagram.pdf Graphic file (type pdf)
+<use figures/flowdiagram.pdf>
+Package pdftex.def Info: figures/flowdiagram.pdf  used on input line 179.
+(pdftex.def)             Requested size: 341.43306pt x 149.56741pt.
+ [10 <./figures/flowdiagram.pdf>]
 chapter 6.
-(./kapitel/ergebnistabelle.tex)
-
-LaTeX Warning: Float too large for page by 26.65216pt on input line 144.
-
-<figures/ann_splitruntime.pdf, id=314, 401.42424pt x 306.84032pt>
-File: figures/ann_splitruntime.pdf Graphic file (type pdf)
-<use figures/ann_splitruntime.pdf>
-Package pdftex.def Info: figures/ann_splitruntime.pdf  used on input line 150.
-(pdftex.def)             Requested size: 455.24408pt x 347.98965pt.
-<figures/memory_all.pdf, id=315, 404.20024pt x 268.23077pt>
-File: figures/memory_all.pdf Graphic file (type pdf)
-<use figures/memory_all.pdf>
-Package pdftex.def Info: figures/memory_all.pdf  used on input line 156.
-(pdftex.def)             Requested size: 455.24408pt x 302.11084pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<figures/memory_fill11.pdf, id=316, 400.18524pt x 305.85225pt>
-File: figures/memory_fill11.pdf Graphic file (type pdf)
-<use figures/memory_fill11.pdf>
-Package pdftex.def Info: figures/memory_fill11.pdf  used on input line 161.
-(pdftex.def)             Requested size: 455.24408pt x 347.95648pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<figures/memory_vs_totalruntime.pdf, id=317, 405.81566pt x 269.14043pt>
-File: figures/memory_vs_totalruntime.pdf Graphic file (type pdf)
-<use figures/memory_vs_totalruntime.pdf>
-Package pdftex.def Info: figures/memory_vs_totalruntime.pdf  used on input line
- 166.
-(pdftex.def)             Requested size: 455.24408pt x 301.9198pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<figures/runtime_ann_annnl.pdf, id=318, 406.4273pt x 309.86725pt>
-File: figures/runtime_ann_annnl.pdf Graphic file (type pdf)
-<use figures/runtime_ann_annnl.pdf>
-Package pdftex.def Info: figures/runtime_ann_annnl.pdf  used on input line 171.
-
-(pdftex.def)             Requested size: 455.24408pt x 347.10095pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<figures/runtime_fill11.pdf, id=319, 406.4273pt x 305.85225pt>
-File: figures/runtime_fill11.pdf Graphic file (type pdf)
-<use figures/runtime_fill11.pdf>
-Package pdftex.def Info: figures/runtime_fill11.pdf  used on input line 176.
-(pdftex.def)             Requested size: 455.24408pt x 342.60352pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<figures/runtime_filltypes.pdf, id=320, 408.21524pt x 333.42401pt>
-File: figures/runtime_filltypes.pdf Graphic file (type pdf)
-<use figures/runtime_filltypes.pdf>
-Package pdftex.def Info: figures/runtime_filltypes.pdf  used on input line 182.
-
-(pdftex.def)             Requested size: 455.24408pt x 371.86026pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<figures/runtime_vs_fill.pdf, id=321, 396.17024pt x 255.29181pt>
-File: figures/runtime_vs_fill.pdf Graphic file (type pdf)
-<use figures/runtime_vs_fill.pdf>
-Package pdftex.def Info: figures/runtime_vs_fill.pdf  used on input line 188.
-(pdftex.def)             Requested size: 455.24408pt x 293.36513pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<figures/totalruntime_all.pdf, id=322, 408.21524pt x 268.76402pt>
+<figures/totalruntime_all.pdf, id=402, 408.21524pt x 268.76402pt>
 File: figures/totalruntime_all.pdf Graphic file (type pdf)
 <use figures/totalruntime_all.pdf>
-Package pdftex.def Info: figures/totalruntime_all.pdf  used on input line 193.
+Package pdftex.def Info: figures/totalruntime_all.pdf  used on input line 194.
 (pdftex.def)             Requested size: 455.24408pt x 299.74643pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<figures/totalruntime_noann.pdf, id=323, 396.17024pt x 268.76402pt>
+<figures/totalruntime_noann.pdf, id=404, 396.17024pt x 268.76402pt>
 File: figures/totalruntime_noann.pdf Graphic file (type pdf)
 <use figures/totalruntime_noann.pdf>
-Package pdftex.def Info: figures/totalruntime_noann.pdf  used on input line 198
+Package pdftex.def Info: figures/totalruntime_noann.pdf  used on input line 203
 .
 (pdftex.def)             Requested size: 455.24408pt x 308.84654pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[8
+[11
 
- <./figures/ann_splitruntime.pdf>] [9] [10 <./figures/memory_all.pdf>]
-[11 <./figures/memory_fill11.pdf>] [12 <./figures/memory_vs_totalruntime.pdf>]
-[13 <./figures/runtime_ann_annnl.pdf>] [14 <./figures/runtime_fill11.pdf>]
-[15 <./figures/runtime_filltypes.pdf>] [16 <./figures/runtime_vs_fill.pdf> <./f
-igures/totalruntime_all.pdf
+ <./figures/totalruntime_all.pdf>]
+<figures/memory_all.pdf, id=433, 404.20024pt x 268.23077pt>
+File: figures/memory_all.pdf Graphic file (type pdf)
+<use figures/memory_all.pdf>
+Package pdftex.def Info: figures/memory_all.pdf  used on input line 212.
+(pdftex.def)             Requested size: 455.24408pt x 302.11084pt.
 
-pdfTeX warning: pdflatex (file ./figures/totalruntime_all.pdf): PDF inclusion: 
-multiple pdfs with page group included in a single page
->] [17 <./figures/totalruntime_noann.pdf>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/ann_splitruntime.pdf, id=434, 401.42424pt x 306.84032pt>
+File: figures/ann_splitruntime.pdf Graphic file (type pdf)
+<use figures/ann_splitruntime.pdf>
+Package pdftex.def Info: figures/ann_splitruntime.pdf  used on input line 221.
+(pdftex.def)             Requested size: 455.24408pt x 347.98965pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/memory_fill11.pdf, id=435, 400.18524pt x 305.85225pt>
+File: figures/memory_fill11.pdf Graphic file (type pdf)
+<use figures/memory_fill11.pdf>
+Package pdftex.def Info: figures/memory_fill11.pdf  used on input line 228.
+(pdftex.def)             Requested size: 455.24408pt x 347.95648pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/runtime_ann_annnl.pdf, id=436, 406.4273pt x 309.86725pt>
+File: figures/runtime_ann_annnl.pdf Graphic file (type pdf)
+<use figures/runtime_ann_annnl.pdf>
+Package pdftex.def Info: figures/runtime_ann_annnl.pdf  used on input line 235.
+
+(pdftex.def)             Requested size: 455.24408pt x 347.10095pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/runtime_fill11.pdf, id=437, 406.4273pt x 305.85225pt>
+File: figures/runtime_fill11.pdf Graphic file (type pdf)
+<use figures/runtime_fill11.pdf>
+Package pdftex.def Info: figures/runtime_fill11.pdf  used on input line 240.
+(pdftex.def)             Requested size: 455.24408pt x 342.60352pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/runtime_filltypes.pdf, id=438, 408.21524pt x 333.42401pt>
+File: figures/runtime_filltypes.pdf Graphic file (type pdf)
+<use figures/runtime_filltypes.pdf>
+Package pdftex.def Info: figures/runtime_filltypes.pdf  used on input line 246.
+
+(pdftex.def)             Requested size: 455.24408pt x 371.86026pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/runtime_vs_fill.pdf, id=439, 396.17024pt x 255.29181pt>
+File: figures/runtime_vs_fill.pdf Graphic file (type pdf)
+<use figures/runtime_vs_fill.pdf>
+Package pdftex.def Info: figures/runtime_vs_fill.pdf  used on input line 252.
+(pdftex.def)             Requested size: 455.24408pt x 293.36513pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+(./kapitel/ergebnistabelle.tex)
+
+LaTeX Warning: Float too large for page by 27.65216pt on input line 263.
+
+[12 <./figures/totalruntime_noann.pdf>] [13] [14 <./figures/memory_all.pdf>]
+[15 <./figures/ann_splitruntime.pdf>] [16 <./figures/memory_fill11.pdf>]
+[17 <./figures/runtime_ann_annnl.pdf>] [18 <./figures/runtime_fill11.pdf>]
+[19 <./figures/runtime_filltypes.pdf>] [20 <./figures/runtime_vs_fill.pdf>]
 chapter 7.
-) (./kapitel/hinweise_its.tex [18
+) (./kapitel/hinweise_its.tex [21
 
 ]
 chapter 8.
@@ -1972,33 +2002,44 @@ ach-lichen Gestal-tung, Auf-bau von Gliederung,
 LaTeX Font Info:    Try loading font information for TS1+ptm on input line 20.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-) [19
+) [22
 
 
 
-] [20])
-(./kapitel/weitere_hinweise_its.tex [21] [22]
+] [23])
+(./kapitel/weitere_hinweise_its.tex [24] [25]
 chapter 9.
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 38.
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 13.24796pt on input line 38.
-[23
+[26
 
 
 
 ]
-<bilder/keller_2016.pdf, id=548, 230.06853pt x 205.12132pt>
+
+Package natbib Warning: Citation `baldauf2001' on page 27 undefined on input li
+ne 48.
+
+<bilder/keller_2016.pdf, id=625, 230.06853pt x 205.12132pt>
 File: bilder/keller_2016.pdf Graphic file (type pdf)
 <use bilder/keller_2016.pdf>
 Package pdftex.def Info: bilder/keller_2016.pdf  used on input line 96.
 (pdftex.def)             Requested size: 318.66946pt x 284.11937pt.
 
+Package natbib Warning: Citation `keller2016' on page 27 undefined on input lin
+e 97.
+
+
+Package natbib Warning: Citation `keller2016' on page 27 undefined on input lin
+e 97.
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Reference `tab:experiment-parameters' on page 24 undefined on in
+Package natbib Warning: Citation `schoof2014' on page 27 undefined on input lin
+e 117.
+
+
+LaTeX Warning: Reference `tab:experiment-parameters' on page 27 undefined on in
 put line 117.
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
@@ -2022,7 +2063,7 @@ Overfull \hbox (4.57965pt too wide) in paragraph at lines 117--118
 ild und Les-barkeit achten (Textgröÿe,
  []
 
-[24]
+[27]
 ! Undefined control sequence.
 <argument> \includeraphics 
                            [width=0.48\columnwidth ]{bilder/wieth_2016_2_6}
@@ -2106,7 +2147,7 @@ Overfull \hbox (48.55746pt too wide) in paragraph at lines 132--132
 [] []$| 
  []
 
-<bilder/wieth_2016_2_6.pdf, id=563, 202.87352pt x 146.0622pt>
+<bilder/wieth_2016_2_6.pdf, id=633, 202.87352pt x 146.0622pt>
 File: bilder/wieth_2016_2_6.pdf Graphic file (type pdf)
 <use bilder/wieth_2016_2_6.pdf>
 Package pdftex.def Info: bilder/wieth_2016_2_6.pdf  used on input line 133.
@@ -2121,7 +2162,7 @@ Overfull \hbox (49.22954pt too wide) in paragraph at lines 133--133
 [] []$| 
  []
 
-<bilder/wieth_2016_3_6.pdf, id=564, 203.02765pt x 145.70772pt>
+<bilder/wieth_2016_3_6.pdf, id=634, 203.02765pt x 145.70772pt>
 File: bilder/wieth_2016_3_6.pdf Graphic file (type pdf)
 <use bilder/wieth_2016_3_6.pdf>
 Package pdftex.def Info: bilder/wieth_2016_3_6.pdf  used on input line 134.
@@ -2136,7 +2177,7 @@ Overfull \hbox (48.55746pt too wide) in paragraph at lines 134--134
 [] []$| 
  []
 
-<bilder/wieth_2016_4_6.pdf, id=565, 204.95615pt x 145.91039pt>
+<bilder/wieth_2016_4_6.pdf, id=635, 204.95615pt x 145.91039pt>
 File: bilder/wieth_2016_4_6.pdf Graphic file (type pdf)
 <use bilder/wieth_2016_4_6.pdf>
 Package pdftex.def Info: bilder/wieth_2016_4_6.pdf  used on input line 135.
@@ -2151,7 +2192,7 @@ Overfull \hbox (49.22954pt too wide) in paragraph at lines 135--135
 [] []$| 
  []
 
-<bilder/wieth_2016_5_6.pdf, id=566, 204.08148pt x 150.5259pt>
+<bilder/wieth_2016_5_6.pdf, id=636, 204.08148pt x 150.5259pt>
 File: bilder/wieth_2016_5_6.pdf Graphic file (type pdf)
 <use bilder/wieth_2016_5_6.pdf>
 Package pdftex.def Info: bilder/wieth_2016_5_6.pdf  used on input line 136.
@@ -2166,7 +2207,7 @@ Overfull \hbox (48.55746pt too wide) in paragraph at lines 136--136
 [] []$| 
  []
 
-<bilder/wieth_2016_6_6.pdf, id=567, 203.02592pt x 144.64096pt>
+<bilder/wieth_2016_6_6.pdf, id=637, 203.02592pt x 144.64096pt>
 File: bilder/wieth_2016_6_6.pdf Graphic file (type pdf)
 <use bilder/wieth_2016_6_6.pdf>
 Package pdftex.def Info: bilder/wieth_2016_6_6.pdf  used on input line 137.
@@ -2251,6 +2292,14 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
+
+Package natbib Warning: Citation `wieth2016' on page 28 undefined on input line
+ 138.
+
+
+Package natbib Warning: Citation `wieth2016' on page 28 undefined on input line
+ 138.
+
 ! Missing } inserted.
 <inserted text> 
                 }
@@ -2290,43 +2339,48 @@ l.140 \end{figure}
                   
 Things are pretty mixed up, but I think the worst is over.
 
-[25 <./bilder/keller_2016.pdf>]
+[28 <./bilder/keller_2016.pdf>]
 Overfull \hbox (20.00789pt too wide) in paragraph at lines 162--163
 []\T1/ptm/m/n/12 Zwischen Gröÿe und Ein-heit, wie [][], wird ein halbes Leerze-
 ichen gesetzt (um-bruchgeschütztes
  []
 
-) (./literatur/literatur.tex [26
+) (./literatur/literatur.tex [29
 
-] (./gesamt.bbl)) (./kapitel/anhang.tex
-[27
+]
+No file gesamt.bbl.
+) (./kapitel/anhang.tex) [30
 
 
-
-]) [28
 
 
 
 ]
+
+Package natbib Warning: There were undefined citations.
+
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 85.
- [29]
+[31]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 85.
  (./gesamt.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 85.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 85.
 Package rerunfilecheck Info: File `gesamt.out' has not changed.
-(rerunfilecheck)             Checksum: DE8A92CF82E678517C7EF901575689F6;2550.
+(rerunfilecheck)             Checksum: 0708F36832E94A21D2E861E1A9F40106;2648.
 
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 85.
  ) 
 Here is how much of TeX's memory you used:
- 31016 strings out of 494847
- 606558 string characters out of 6179081
- 917532 words of memory out of 5000000
- 33739 multiletter control sequences out of 15000+600000
+ 31006 strings out of 494847
+ 606723 string characters out of 6179081
+ 916996 words of memory out of 5000000
+ 33734 multiletter control sequences out of 15000+600000
  643140 words of font info for 167 fonts, out of 8000000 for 9000
  62 hyphenation exceptions out of 8191
  60i,20n,84p,10429b,1402s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2344,10 +2398,10 @@ onts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/t
 imes/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on gesamt.pdf (34 pages, 1043168 bytes).
+Output written on gesamt.pdf (36 pages, 1289082 bytes).
 PDF statistics:
- 700 PDF objects out of 1000 (max. 8388607)
- 551 compressed objects within 6 object streams
- 110 named destinations out of 1000 (max. 500000)
- 437 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 748 PDF objects out of 1000 (max. 8388607)
+ 579 compressed objects within 6 object streams
+ 104 named destinations out of 1000 (max. 500000)
+ 460 words of extra memory for PDF output out of 10000 (max. 10000000)
 
