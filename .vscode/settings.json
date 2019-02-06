@@ -41,5 +41,6 @@
         "string_view": "cpp",
         "algorithm": "cpp",
         "ratio": "cpp"
-    }
+    },
+    "latex-workshop.latex.autoBuild.onSave.enabled": false
 }
