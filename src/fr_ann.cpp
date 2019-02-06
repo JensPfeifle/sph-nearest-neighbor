@@ -16,7 +16,7 @@ using namespace std;
 // 0: sorted search
 // 1: naive (double for loop) search
 //----------------------------------------------------------------------
-#define INTERACTIONLISTMETHOD 0
+#define INTERACTIONLISTMETHOD 1
 
 //----------------------------------------------------------------------
 //	Parameters that are set in getArgs()
