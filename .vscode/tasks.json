@@ -4,12 +4,12 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build scratchfile",
+            "label": "Build fr_ann_query",
             "type": "shell",
             "command": "g++",
             "args": [
-                "${workspaceFolder}/src/scratch.cpp",
-                "-o${workspaceFolder}/bin/scratch",
+                "${workspaceFolder}/src/fr_ann_query.cpp",
+                "-o${workspaceFolder}/bin/fr_ann_query",
                 "-O3",
                 "-Wall",
                 "-I${workspaceFolder}/ann_1.1.2/include",
@@ -23,12 +23,12 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "Build fr_ann_query",
+            "label": "Build fr_ann",
             "type": "shell",
             "command": "g++",
             "args": [
-                "${workspaceFolder}/src/fr_ann_query.cpp",
-                "-o${workspaceFolder}/bin/fr_ann_query",
+                "${workspaceFolder}/src/fr_ann.cpp",
+                "-o${workspaceFolder}/bin/fr_ann",
                 "-O3",
                 "-Wall",
                 "-I${workspaceFolder}/ann_1.1.2/include",
@@ -45,12 +45,69 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "Run tests",
+        "label": "Build fr_nanoflann",
+        "type": "shell",
+        "command": "g++",
+        "args": [
+            "${workspaceFolder}/src/fr_nanoflann.cpp",
+            "-o${workspaceFolder}/bin/fr_nanoflann",
+            "-O3",
+            "-Wall",
+            "-I${workspaceFolder}/ann_1.1.2/include",
+            "-I${workspaceFolder}/nanoflann/include",
+            "-L${workspaceFolder}/ann_1.1.2/lib",
+            "-lANN"
+        ],
+        "group": {
+            "kind": "build",
+            "isDefault": true
+        },
+        "presentation": {
+            "reveal": "silent"
+        },
+        "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Build fr_cellLinkedList",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "${workspaceFolder}/src/fr_cellLinkedList.cpp",
+                "-o${workspaceFolder}/bin/fr_cellLinkedList",
+                "-O3",
+                "-Wall",
+                "-I${workspaceFolder}/ann_1.1.2/include",
+                "-L${workspaceFolder}/ann_1.1.2/lib",
+                "-lANN"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Test 3D",
             "dependsOn": [
-                "Build rf_ann_query"
+                "Build fr_ann",
+                "Build fr_ann_query"
             ],
             "type": "shell",
-            "command": "./scripts/test.sh",
+            "command": "./scripts/test_3d.sh",
+            "group": "test",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Test 2D",
+            "dependsOn": [
+                "Build fr_ann",
+                "Build fr_ann_query"
+            ],
+            "type": "shell",
+            "command": "./scripts/test_2d.sh",
             "group": "test",
             "presentation": {
                 "reveal": "always",

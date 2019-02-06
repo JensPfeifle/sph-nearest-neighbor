@@ -1,0 +1,23 @@
+\begin{thebibliography}{4}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Blanco und Rai(2014)}]{blanco2014nanoflann}
+Blanco, Jose~Luis und Rai, Pranjal~Kumar (2014): {\em nanoflann: a {C}++
+  header-only fork of {FLANN}, a library for Nearest Neighbor ({NN}) with
+  KD-trees\/}.
+\newblock \url{https://github.com/jlblancoc/nanoflann}.
+
+\bibitem[{Mount und Arya(2010{\natexlab{a}})}]{ANN10}
+Mount, David~M. und Arya, Sunil (2010{\natexlab{a}}): {\em ANN: A Library for
+  Approximate Nearest Neighbor Searching\/}.
+\newblock http://www.cs.umd.edu/~mount/ANN/.
+
+\bibitem[{Mount und Arya(2010{\natexlab{b}})}]{Mount10}
+Mount, David~M. und Arya, Sunil (2010{\natexlab{b}}): {\em ANN Programming
+  Manual, V1.1.1\/}.
+
+\bibitem[{Weygand(2018)}]{Weygand18}
+Weygand, Daniel (2018): {\em Lecture notes in Wissenschaftliches Progammieren
+  fuer Ingenieure\/}.
+
+\end{thebibliography}

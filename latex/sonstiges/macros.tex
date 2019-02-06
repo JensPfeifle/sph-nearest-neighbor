@@ -1,0 +1,82 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Zuweisen von Zahlenwerten zu Monatsnamen 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\monthword}[1]{\ifcase#1\or Januar\or Februar\or M\"arz\or April\or
+                                        Mai\or Juni\or Juli\or August\or
+                                        September\or Oktober\or November\or Dezember\fi}
+																				
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Benutzerdefinierte Übersetzungen (Fixed names und Variablen)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Definieren von neuen Namen für die einzelnen Tabellen
+\newcommand{\latinsymbolsname}{}
+\newcommand{\greeksymbolsname}{}
+\newcommand{\indicesname}{}
+\newcommand{\simparsname}{}
+\newcommand{\abbrevsname}{}
+\newcommand{\unitname}{}
+\newcommand{\descname}{}
+% ngerman
+\addto\captionsngerman{
+  \renewcommand{\indexname}{Symbolverzeichnis}
+  \renewcommand{\refname}{Literaturverzeichnis}
+	\renewcommand{\latinsymbolsname}{Lateinische~Symbole}
+	\renewcommand{\greeksymbolsname}{Griechische~Symbole}
+	\renewcommand{\indicesname}{Indizes}
+	\renewcommand{\simparsname}{Ähnlichkeitskennzahlen}
+	\renewcommand{\abbrevsname}{Abkürzungen}
+	\renewcommand{\symbolname}{Formelzeichen}
+	\renewcommand{\unitname}{Einheit}
+	\renewcommand{\descname}{Beschreibung}
+}
+% german (Verwendung wird nicht empfohlen)
+\addto\captionsgerman{
+  \renewcommand{\indexname}{Symbolverzeichnis}
+  \renewcommand{\refname}{Literaturverzeichnis}
+	\renewcommand{\latinsymbolsname}{Lateinische~Symbole}
+	\renewcommand{\greeksymbolsname}{Griechische~Symbole}
+	\renewcommand{\indicesname}{Indizes}
+	\renewcommand{\simparsname}{Ähnlichkeitskennzahlen}
+	\renewcommand{\abbrevsname}{Abkürzungen}
+	\renewcommand{\symbolname}{Formelzeichen}
+	\renewcommand{\unitname}{Einheit}
+	\renewcommand{\descname}{Beschreibung}
+}
+% english (Verwendung wird nicht empfohlen)
+\addto\captionsenglish{
+  \renewcommand{\indexname}{List of Symbols}
+  \renewcommand{\latinsymbolsname}{Latin~symbols}
+	\renewcommand{\greeksymbolsname}{Greek~symbols}
+	\renewcommand{\indicesname}{Indices}
+	\renewcommand{\simparsname}{Similarity parameters}
+	\renewcommand{\abbrevsname}{Abbreviations}
+	\renewcommand{\symbolname}{Symbol}
+	\renewcommand{\unitname}{Unit}
+	\renewcommand{\descname}{Description}
+}
+% french (Verwendung wird nicht empfohlen)
+\addto\captionsfrench{
+  \renewcommand{\indexname}{Table de Symboles}
+  \renewcommand{\latinsymbolsname}{Lettres~latines}
+	\renewcommand{\greeksymbolsname}{Lettres~grecques}
+	\renewcommand{\indicesname}{Indices}
+	\renewcommand{\simparsname}{Nombres sans dimension}
+	\renewcommand{\abbrevsname}{Abréviations}
+	\renewcommand{\symbolname}{Symbol}
+	\renewcommand{\unitname}{Unité}
+	\renewcommand{\descname}{Description}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Glossardateien erstellen
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Indexdateien für Symbolverzeichnis erstellen
+%% \newglossary[Dateiendung Protokolldatei]{Typ des Glossars}{Dateiendung für Eingabedatei VOR Verarbeitung}{Dateiendung für Eingabedatei NACH Verarbeitung}{Titel}
+%\newglossary[slg1]{latinSymb}{syi1_temp}{syg1}{\latinsymbolsname}
+%\newglossary[slg2]{greekSymb}{syi2_temp}{syg2}{\greeksymbolsname}
+%\newglossary[slg3]{simPar}{syi3_temp}{syg3}{\simparsname}
+%\newglossary[slg4]{indices}{syi4_temp}{syg4}{\indicesname}
+%\newglossary[slg5]{abbrevs}{syi5_temp}{syg5}{\abbrevsname}
+%% Hinzufügen des Eintrags unit{}, damit eine Einheit angegeben werden kann.
+%\glsaddkey{unit}{\glsentrytext{\glslabel}}{\glsentryunit}{\GLsentryunit}{\glsunit}{\Glsunit}{\GLSunit}
+%\makeglossaries

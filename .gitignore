@@ -1,5 +1,7 @@
+#tests working directory
 test/
-
+# backup and tmp files
+*~
 
 ## Cpp
 

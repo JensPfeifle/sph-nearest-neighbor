@@ -1,0 +1,70 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Allgemein
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\unitlength}{1truecm}					% Maßeinheit fuer Bildgroessen etc. 1cm
+\hyphenation{Sys-tem Sys-tems Ver-läss-lich-keit} 	% Trennhilfen einfügen
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Unterdrückung von Warnmeldungen (insbesondere 'overfull boxes')
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hfuzz2pt
+\vfuzz6pt
+\hbadness=10000
+\vbadness=10000
+%\pdfsuppresswarningpagegroup=1
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Textspiegel
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\headheight}{18pt}     					% Höhe der Kopfzeile
+\setlength{\textheight}{24.0cm}              		% Texthöhe
+\setlength{\textwidth}{16.0cm}               		% Textbreite
+\setlength{\topmargin}{-1.0cm}               		% oberen Seitenrand festlegen, bzw. verschieben
+\setlength{\oddsidemargin}{0.2cm}            		% Seitenrand anpassen -> ungerade Seiten !
+\setlength{\evensidemargin}{-0.2cm}          		% Seitenrand anpassen -> gerade Seiten !
+\setlength{\parindent}{0pt}                  		% Einzug bei neuen Absätzen
+\setlength{\parskip}{5pt plus 2pt minus 1pt} 		% Abstand zwischen zwei Absätzen
+\renewcommand{\baselinestretch}{1.1}         		% Veränderung des Zeilenabstandes {Faktor}
+\setlength\itemsep{0.25\parsep}						% In Listen zwischen den Elementen 25% des Platzes zwischen zwei Absaetzen lassen.
+\addtolength\footskip{0.5truecm}					% Zwischen Text und Fussnoten 5 mm mehr Abstand
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Einbettung von Gleitobjekten (Bilder, Tabellen etc.)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{topnumber}{2} 							% ueber dem Text duerfen max. 2 Bilder stehen
+\setcounter{dbltopnumber}{2}    					% für zweispaltige Seiten
+\setcounter{bottomnumber}{2}						% unter dem Text duerfen max. 2 Bilder stehen
+\setcounter{totalnumber}{4}							% auf jeder Seite duerfen max. 4 Bilder stehen
+\renewcommand{\topfraction}{0.99}					% ueber dem Text darf max. 99% der Seite fuer Bilder verbraucht werden
+\renewcommand{\dbltopfraction}{0.99} 				% zweispaltig
+\renewcommand{\bottomfraction}{0.99}				% unter dem Text darf max. 99% der Seite fuer Bilder verbraucht werden
+\renewcommand{\textfraction}{0.01}					% insgesamt sollte auf jeder Seite 1% Text stehen
+\renewcommand{\floatpagefraction}{0.99}				% Mindestfuellgrad der Seite, wenn die Bilder auf einer separaten Bild-Seite stehen sollen
+\renewcommand{\dblfloatpagefraction}{0.99}			% zweispaltig
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Inhaltsverzeichnis
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{secnumdepth}{2}                  		% Schachtelungstiefe Ueberschriften
+\setcounter{tocdepth}{2}                     		% Schachtelungstiefe Eintraege im Inhaltsverzeichnis
+\setkomafont{chapterentry}{\bfseries}				% Schriftart der Kapiteleinträge
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Überschriften formatieren
+% KOMA-Font-Einstellungen
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+	\renewcommand\section{\@startsection
+		{section}{1}{0pt}% 								% Name, Ebene, Einzug
+	  {-3.5ex \@plus -1ex \@minus -.2ex}%				% Abstand vor
+ 	  {2.3ex \@plus.2ex}%								% Abstand nach
+		{\large \bfseries \rmfamily}}					% Layout
+\makeatother
+\setkomafont{chapter}{\Large \bfseries}							% Chapter layout
+\setkomafont{subsection}{\large \bfseries \rmfamily}			% Subsection layout
+\setkomafont{subsubsection}{\normalsize \bfseries \rmfamily}	% Subsubsection layout
+\setkomafont{minisec}{\normalsize \bfseries \rmfamily}			% Minisection layout
+\setkomafont{paragraph}{\normalsize \bfseries \rmfamily}		% paragraph layout
+\setkomafont{subparagraph}{\normalsize \bfseries \rmfamily}		% subparagraph layout
+\renewcommand*{\chapterheadstartvskip}{\vspace*{-20pt}} 		% Abstand vor Kapitelüberschriften: 1/3 der Satzspiegelhöhe
+\renewcommand*{\chapterheadendvskip}{\vspace{15pt}} 			% Abstand nach Kapitelüberschriften: 3 Zeilen

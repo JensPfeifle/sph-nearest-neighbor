@@ -1,0 +1,88 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Vorlage für Bachelor- und Masterarbeiten mit pdflatex nach dem Layout des ITS
+% Fabian Bleier (fabian.bleier@kit.edu), September 2016
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Kurzbeschreibung
+% Der Hauptordner enthält in erster Linie das Dokument "gesamt.tex". Dieses enthält wiederum alle notwendigen Nutzereingaben (Autor, Titel etc.). 
+% Die einzelnen Kapitel werden in das Gesamtdokument eingeladen und liegen im Ordner "kapitel". 
+% Der Ordner "sonstiges" enthält alle Seiten außerhalb des eigentlichen Textkörpers (Formatierung der Kopfzeilen, Deckblätter, die einzubindenden Pakete, Institutslogos, Macros, Verzeichnisse usw.)
+% Der Ordner "literatur" enthält alle Dateien, welche zur Gestaltung eines Literaturverzeichnisses notwendig sind (Die bibtex-Datei, die bst-Datei, und das eigentliche Verzeichnis).
+% Im Ordner "bilder" können alle Abbildungen abgelegt werden.
+% Der Ordner "dokumentation" enthält verschiedene Dokumentationen zu den verwendeten Paketen, ferner eine ausbaufähige Dokumentation des LaTeX-Dokuments
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Dokumenterstellung
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[
+paper=a4,										% Seitenformat
+12pt,											% Schriftgröße
+twoside=false,									% zweiseitig true/false
+headings=small,									% Formatierung der Überschriften
+draft=false,									% Entwurfsmodus true/false
+]{scrreprt}										% KOMA-Klasse Report
+%\usepackage{showframe}							% Schriftfeld in Dokument anzeigen
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Metadaten und Variablen zur Verwendung im Dokument und zur Erstellung der PDF-Datei
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\doctitle}{Implementation of a Nearest-Neighbor Search for Particle Simulation in Sparse Computational Domains} 				% Titel der Arbeit
+\newcommand{\doctype}{Energietechnisches Praktikum}			% Dokumenttyp
+\newcommand{\docauthor}{Jens Peifle, B.Sc.}	% Autor
+\newcommand{\doclocation}{Karlsruhe}			% Erstellungsort
+\newcommand{\betreuerI}{Marc Keller, M.Sc.}	% Betreuer1
+\newcommand{\betreuerII}{}						% Betreuer2 (optional, kann leer gelassen werden)
+\newcommand{\docsubject}{Kurzbeschreibung}		% Kurzbeschreibung
+\newcommand{\dockeywords}{%
+Flugzeugtriebwerke,
+	SPH, Partikel
+}												% Stichworte
+\newcommand{\doccreator}{pdflatex}				% Erstellt mit
+\newcommand{\docproducer}{LaTeX}				% Software
+\newcommand{\docdate}{\today}					% Erstellungsdatum
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Formatierung, Pakete, Makros einbinden
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{sonstiges/packages.tex}					% Pakete
+\input{sonstiges/macros.tex}					% Selbstgeschriebene Macros
+\input{sonstiges/format.tex}					% Dokumentformatierung
+\input{sonstiges/headerFormat.tex}				% Kopf- und Fußzeilenformatierung
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Textkörper 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Sprachauswahl
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% neudeutsch = {ngerman}, englisch = {english}, französisch = {french}
+\selectlanguage{english}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Titelseiten, Inhaltsverzeichnis, Tabellenverzeichnis
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{sonstiges/ersteseiten.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Hauptteil
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{kapitel/elab_einleitung.tex}
+\input{kapitel/elab_searchmethods.tex}
+\input{kapitel/elab_structure.tex}
+\input{kapitel/elab_testcases.tex}
+\input{kapitel/elab_results.tex}
+\input{kapitel/elab_summary.tex}
+
+%\input{kapitel/elabor.tex}
+%\input{kapitel/hinweise_its.tex}
+%\input{kapitel/TeXintro.tex}
+%\input{kapitel/weitere_hinweise_its.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Literaturverzeichnis und Anhang
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{literatur/literatur.tex}
+%\input{kapitel/anhang.tex}
+
+\end{document}
