@@ -2,6 +2,9 @@
 test/
 # backup and tmp files
 *~
+# ipython checkpoints
+.ipynb_checkpoints
+
 
 ## Cpp
 
