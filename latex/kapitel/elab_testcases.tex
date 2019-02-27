@@ -7,11 +7,11 @@ This chapter first describes the test cases and shows how the data points are di
 \section{Test Cases}
 \label{SECTION:TESTCASES}
 
-As in the SPH simulation, particles can be distributed within the domain in a variety of different ways. They can be arranged in many small clusters, or large groups. The cluster edges could be horizontal and vertical (i.e. parallel to the domain bounds) or at an angle. Depending on the contents of the simulation domain, there can be many points in the domain or only relatively few. The test cases are designed to cover these different varieties and allow for a comparison between them.
+In SPH simulations of complex two-phase flows, particles can be distributed within the domain in a variety of different ways. They can be arranged in many small clusters, or large groups. The cluster edges can be arbitrarily oriented (aligned or unaligned with the coordinate system of the domain). Depending on the contents of the simulation domain, there can be many points in the domain or only relatively few. The test cases are designed to cover these different varieties and allow for a comparison between them.
 
-The test cases are differentiated by two important parameters, {\itshape fill} and {\itshape filltype}. The distribution and orientation of the points is determined by the fill type. Specifically, there are four different fill types: {\itshape full}, {\itshape clusters}, {\itshape corners}, and {\itshape diagonal}. Each are generated using the appropriate test case script as described in \ref{SECTION:TESTCASESCRIPTS}.
+The test cases are differentiated by two important parameters, {\itshape fill} and {\itshape fill type}. The distribution and orientation of the points is determined by the fill type. Specifically, there are four different fill types: \texttt{full}, \texttt{clusters}, \texttt{corners}, and \texttt{diagonal}. Each are generated using the appropriate test case script as described in Section \ref{SECTION:TESTCASESCRIPTS}.
 
-The second important parameter is the $fill$. This is defined as the fraction of actual points in the domain over the number of points in a fully-filled domain. The test case {\itshape full}, consisting of a fully-filled domain, has by definition a fill of $1.0$. For a domain size of $0.005$x$0.01$x$0.005$ and a particle spacing of $10^{-4}$, the {\itshape full} test case contains 250000 points distributed on a regular grid. The number of points in the other test cases is therefore always a fraction of 250000. 
+The second important parameter is the fill. This is defined as the fraction of actual points in the domain over the number of points in a fully-filled domain. The test case \texttt{full}, consisting of a fully-filled domain, has by definition a fill of $1.0$. For a domain size of $0.005$x$0.01$x$0.005$ and a particle spacing of $10^{-4}$, the \texttt{full} test case contains 250000 points distributed on a regular grid. The number of points in the other test cases is therefore always a fraction of 250000. 
 
 \begin{figure}[h]
 	\centering
@@ -20,7 +20,7 @@ The second important parameter is the $fill$. This is defined as the fraction of
 	\label{FIG:clusters2_11}
 \end{figure}
 
-The {\itshape clusters} test case is made up of rectangular, box-shaped clusters of points. Within the clusters, the points are distributed on a regular grid. The {\itshape clusters} cases are denoted {\itshape clusters}$N$, where the cluster size parameter $N$ specifies the number of clusters distributed throughout the space, i.e. a higher value of $N$ leads to more, but smaller clusters. The {\itshape clusters} test cases are examined for fill levels of 11\% and 51\% with varying cluster sizes. The cluster number parameter $N$ is set as an argument to the test case generation script. Exemplary {\itshape clusters} test cases for the same fill but different $N$ values can be see in the figures \ref{FIG:clusters2_11} and \ref{FIG:clusters6_11}. 
+The \texttt{clusters} test case is made up of rectangular, box-shaped clusters of points. Within the clusters, the points are distributed on a regular grid. The \texttt{clusters} cases are denoted \texttt{clustersN}, where the cluster size parameter $N$ specifies the number of clusters distributed throughout the space, i.e. a higher value of $N$ leads to more, but smaller clusters. The \texttt{clusters} test cases are examined for fill levels of 11\% and 51\% with varying cluster sizes. The cluster number parameter $N$ is set as an argument to the test case generation script. Exemplary \texttt{clusters} test cases for the same fill but different $N$ values can be see in Figure \ref{FIG:clusters2_11} and Figure \ref{FIG:clusters6_11}. 
 
 \begin{figure}[h]
 	\centering
@@ -29,7 +29,7 @@ The {\itshape clusters} test case is made up of rectangular, box-shaped clusters
 	\label{FIG:clusters6_11}
 \end{figure}
 
-The {\itshape corners} test case represent large groups of particles. The points are distributed regularly within two rectangular boxes extending from opposite corners of the domain towards the point in the center. This is visualized in Figure \ref{FIG:corners_11}. The maximum possible fill with this fill type is achieved when both boxes extend from their corners to the center. In this case two quarters of the domain are filled, leading to a fill of 50\%. The {\itshape corners} test case is examined for 2\%, 11\%, and 14\% fill.
+The \texttt{corners} test case represent large groups of particles. The points are distributed regularly within two rectangular boxes extending from opposite corners of the domain towards the point in the center. This is visualized in Figure \ref{FIG:corners_11}. The maximum possible fill with this fill type is achieved when both boxes extend from their corners to the center. In this case two quarters of the domain are filled, leading to a fill of 50\%. The \texttt{corners} test case is examined for 2\%, 11\%, and 14\% fill.
 
 \begin{figure}[h]
 	\centering
@@ -38,7 +38,7 @@ The {\itshape corners} test case represent large groups of particles. The points
 	\label{FIG:corners_11}
 \end{figure}
 
-The {\itshape diagonals} test case is the only case in which the boundaries of the clusters are not parallel to the boundaries of the domain. The distribution is created by filling in the test domain from all eight corners up to a plane angled at 45 degrees from the domain boundaries. See Figure \ref{FIG:diagonals_11} for a 2D view of the {\itshape diagonals} test case with 11\% fill. This distribution is however best viewed in 3D using the {\itshape plot\_3d} script.
+The \texttt{diagonals} test case is the only case in which the boundaries of the clusters are not parallel to the boundaries of the domain. The distribution is created by filling in the test domain from all eight corners up to a plane angled at 45 degrees from the domain boundaries. See Figure \ref{FIG:diagonals_11} for a 2D view of the \texttt{diagonals} test case with 11\% fill. This distribution is however best viewed in 3D using the \texttt{plot\_3d} script.
 
 \begin{figure}[h]
 	\centering
@@ -47,14 +47,27 @@ The {\itshape diagonals} test case is the only case in which the boundaries of t
 	\label{FIG:diagonals_11}
 \end{figure}
 
-\pagebreak
+\section{Table of Test Cases}
+
+The following table (Table \ref{TABLE:TESTCASES}) contains an overview of which search methods were benchmarked for each test case. The cases marked with a dot were tested. The cases not marked were not tested due to excessively long runtimes.
+
+\begin{table}[htbp]
+	\centering
+	\renewcommand{\arraystretch}{1.3} % Größerer Zeilenabstand
+	\captionabove{Benchmarked test cases.}
+	\input{kapitel/testcasestabelle.tex}
+	\label{TABLE:TESTCASES}
+\end{table}
+
 
 \section{Benchmarking}
 \label{SECTION:BENCHMARKING}
 
+This section describes the values that are tracked during benchmarking for the purpose of comparison of the search methods and how these values are collected with a scripted benchmarking process.
+
 \subsection{Tracked values}
 
-In order to compare the performance of the search methods, two characteristic values are tracked. The first is the run time of the search: how much time it takes for the program to solve the frNN search problem and compile the results into a useful data format. This is achieved by using timers within the C++ implementation of the search methods. For all search methods, the total time, {\itshape ttotal}, is tracked. This total time does not include reading or writing data. For the ANN search, the time is additionally split up into the time spent determining the number of neighbors, {\itshape tksearch}, the time spent retrieving the neighbors from the kdtree structure, {\itshape tfrsearch}, and the time spent processing the interaction pair lists, {\itshape tprocessing}. The second tracked value is the memory use of the search method executable. This is measured by the {\itshape time} program, which outputs the maximum resident set size of the process. The resident set size is the space occupied by the process in the main memory (RAM).
+In order to compare the performance of the search methods, two characteristic values are tracked. The first is the run time of the search: how much time it takes for the program to solve the frNN search problem and compile the results into a useful data format. This is achieved by using timers within the C++ implementation of the search methods. For all search methods, the total time, \texttt{ttotal}, is tracked. This total time does not include reading or writing data. For the ANN search, the time is additionally split up into the time spent determining the number of neighbors, \texttt{tksearch}, the time spent retrieving the neighbors from the kd-tree structure, \texttt{tfrsearch}, and the time spent processing the interaction pair lists, \texttt{tprocessing}. The second tracked value is the memory use of the search method executable. This is measured by the \texttt{time} program, which outputs the maximum resident set size of the process. The resident set size is the space occupied by the process in the main memory (RAM).
 
 \subsection{Benchmarking Process}
 
@@ -67,4 +80,5 @@ The benchmark is run via bash scripts for each search method, which define the t
 	\label{FIG:BENCHMARKING}
 \end{figure}
 
-First, the test case script is called, which writes the data points and statistics file. The search method executable ist then executed using the {\itshape time} command to track the memory use of the process. The search method executable adds its own time results to the statistics file and once it is finished the memory use results are also added. This is repeated multiple times to get a statistically valid sample. The script then moves on to the next test case, repeating the described process.
+First, the test case script is called, which writes the data points and statistics file. The search method executable is then executed using the \texttt{time} command to track the memory use of the process. The search method executable adds its own time results to the statistics file and once it is finished the memory use results are also added. This is repeated multiple times to get a statistically valid sample. The script then moves on to the next test case, repeating the described process.
+

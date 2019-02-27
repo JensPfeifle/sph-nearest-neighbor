@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.2.2)  6 FEB 2019 15:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.2.21)  27 FEB 2019 18:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -112,23 +112,11 @@ Package: babel 2018/02/14 3.18 The Babel package
 (/usr/share/texlive/texmf-dist/tex/generic/babel/switch.def
 File: switch.def 2018/02/14 3.18 Babel switching mechanism
 )
+(/usr/share/texlive/texmf-dist/tex/generic/babel-german/ngerman.ldf
+Language: ngerman 2016/11/02 v2.9 German support for babel (new orthography)
 
-! Package babel Error: Unknown option `ngerman'. Either you misspelled it
-(babel)                or the language definition file ngerman.ldf was not foun
-d.
-
-See the babel package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.445 \ProcessOptions*
-                      
-Valid options are: shorthands=, KeepShorthandsActive,
-activeacute, activegrave, noconfigs, safe=, main=, math=
-headfoot=, strings=, config=, hyphenmap=, or a language name.
-
-(/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
-Language: english 2017/06/06 v3.3r English support from the babel system
+(/usr/share/texlive/texmf-dist/tex/generic/babel-german/ngermanb.ldf
+Language: ngermanb 2016/11/02 v2.9 German support for babel (new orthography)
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2018/02/14 3.18 Babel common definitions
@@ -138,8 +126,10 @@ File: babel.def 2018/02/14 3.18 Babel common definitions
 (/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@dirlevel=\count91
 )
-\l@british = a dialect from \language\l@english 
-\l@UKenglish = a dialect from \language\l@english 
+Package babel Info: Making " an active character on input line 125.
+))
+(/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
+Language: english 2017/06/06 v3.3r English support from the babel system
 \l@canadian = a dialect from \language\l@american 
 \l@australian = a dialect from \language\l@british 
 \l@newzealand = a dialect from \language\l@british 
@@ -1555,6 +1545,10 @@ Package: tracklang 2018/02/21 v1.3.5 (NLCT) Track Languages
 ldf
 File: glossaries-english.ldf 2014/11/23 v1.0
 )
+(/usr/share/texlive/texmf-dist/tex/latex/glossaries-german/glossaries-german.ld
+f
+File: glossaries-german.ldf 2014/11/23 v1.0
+)
 \gls@level=\count324
 \@gls@tmpb=\toks29
 \gls@tmplen=\skip81
@@ -1816,13 +1810,27 @@ cally within a char-ac-ter-is-tic ra-dius ("smooth-
 
 ]
 chapter 3.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 9.
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
 LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <14.4> not available
 (Font)              Font shape `T1/ptm/b/it' tried instead on input line 13.
+
+! Undefined control sequence.
+l.20 ...les) in the search domain. Then the \textt
+                                                  {annkFRSearch} procedure i...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
 [3
 
 ]) (./kapitel/elab_structure.tex [4]
 chapter 4.
-<figures/project_folders.pdf, id=199, 611.88597pt x 126.87401pt>
+<figures/project_folders.pdf, id=200, 611.88597pt x 126.87401pt>
 File: figures/project_folders.pdf Graphic file (type pdf)
 <use figures/project_folders.pdf>
 Package pdftex.def Info: figures/project_folders.pdf  used on input line 15.
@@ -1831,22 +1839,29 @@ Package pdftex.def Info: figures/project_folders.pdf  used on input line 15.
 
  <./figures/project_folders.pdf>]) (./kapitel/elab_testcases.tex [6]
 chapter 5.
-<figures/testcase_clusters2_11.pdf, id=216, 447.55931pt x 271.79883pt>
+<figures/testcase_clusters2_11.pdf, id=217, 447.55931pt x 271.79883pt>
 File: figures/testcase_clusters2_11.pdf Graphic file (type pdf)
 <use figures/testcase_clusters2_11.pdf>
 Package pdftex.def Info: figures/testcase_clusters2_11.pdf  used on input line 
 18.
 (pdftex.def)             Requested size: 447.5582pt x 271.79816pt.
+
+Overfull \hbox (3.96819pt too wide) in paragraph at lines 23--24
+\T1/ptm/m/n/12 through-out the space, i.e. a higher value of $\OML/ztmcm/m/it/1
+2 N$ \T1/ptm/m/n/12 leads to more, but smaller clus-ters. The \T1/pcr/m/n/12 cl
+usters
+ []
+
 [7
 
  <./figures/testcase_clusters2_11.pdf>]
-<figures/testcase_clusters6_11.pdf, id=239, 447.55931pt x 271.79883pt>
+<figures/testcase_clusters6_11.pdf, id=240, 447.55931pt x 271.79883pt>
 File: figures/testcase_clusters6_11.pdf Graphic file (type pdf)
 <use figures/testcase_clusters6_11.pdf>
 Package pdftex.def Info: figures/testcase_clusters6_11.pdf  used on input line 
 27.
 (pdftex.def)             Requested size: 447.5582pt x 271.79816pt.
-<figures/testcase_corners_11.pdf, id=241, 447.55931pt x 271.79883pt>
+<figures/testcase_corners_11.pdf, id=242, 447.55931pt x 271.79883pt>
 File: figures/testcase_corners_11.pdf Graphic file (type pdf)
 <use figures/testcase_corners_11.pdf>
 Package pdftex.def Info: figures/testcase_corners_11.pdf  used on input line 36
@@ -1856,7 +1871,7 @@ Package pdftex.def Info: figures/testcase_corners_11.pdf  used on input line 36
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/testcase_diagonal_11.pdf, id=243, 447.55931pt x 271.79883pt>
+<figures/testcase_diagonal_11.pdf, id=244, 447.55931pt x 271.79883pt>
 File: figures/testcase_diagonal_11.pdf Graphic file (type pdf)
 <use figures/testcase_diagonal_11.pdf>
 Package pdftex.def Info: figures/testcase_diagonal_11.pdf  used on input line 4
@@ -1865,29 +1880,30 @@ Package pdftex.def Info: figures/testcase_diagonal_11.pdf  used on input line 4
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[8 <./figures/testcase_clusters6_11.pdf>]
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 55.
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 13.24796pt on input line 55.
- [9 <./figures/testcase_corners_11.pdf> <./figures/testcase_diagonal_11.pdf
+[8 <./figures/testcase_clusters6_11.pdf>] [9 <./figures/testcase_corners_11.pdf
+> <./figures/testcase_diagonal_11.pdf
 
 pdfTeX warning: pdflatex (file ./figures/testcase_diagonal_11.pdf): PDF inclusi
 on: multiple pdfs with page group included in a single page
->]
-<figures/flowdiagram.pdf, id=297, 881.69403pt x 386.24298pt>
+>] (./kapitel/testcasestabelle.tex)
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 68.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 13.24796pt on input line 68.
+ [10]
+<figures/flowdiagram.pdf, id=306, 881.69403pt x 386.24298pt>
 File: figures/flowdiagram.pdf Graphic file (type pdf)
 <use figures/flowdiagram.pdf>
-Package pdftex.def Info: figures/flowdiagram.pdf  used on input line 65.
+Package pdftex.def Info: figures/flowdiagram.pdf  used on input line 78.
 (pdftex.def)             Requested size: 341.43306pt x 149.56741pt.
-) (./kapitel/elab_results.tex [10 <./figures/flowdiagram.pdf>]
+) (./kapitel/elab_results.tex [11 <./figures/flowdiagram.pdf>]
 chapter 6.
-<figures/totalruntime_all.pdf, id=311, 408.21524pt x 226.28333pt>
+<figures/totalruntime_all.pdf, id=318, 408.21524pt x 226.28333pt>
 File: figures/totalruntime_all.pdf Graphic file (type pdf)
 <use figures/totalruntime_all.pdf>
 Package pdftex.def Info: figures/totalruntime_all.pdf  used on input line 11.
 (pdftex.def)             Requested size: 455.24408pt x 252.36867pt.
-<figures/totalruntime_noann.pdf, id=313, 396.17024pt x 226.28333pt>
+<figures/totalruntime_noann.pdf, id=320, 396.17024pt x 226.28333pt>
 File: figures/totalruntime_noann.pdf Graphic file (type pdf)
 <use figures/totalruntime_noann.pdf>
 Package pdftex.def Info: figures/totalruntime_noann.pdf  used on input line 20.
@@ -1896,7 +1912,7 @@ Package pdftex.def Info: figures/totalruntime_noann.pdf  used on input line 20.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/memory_all.pdf, id=314, 404.20024pt x 229.90288pt>
+<figures/memory_all.pdf, id=321, 404.20024pt x 229.90288pt>
 File: figures/memory_all.pdf Graphic file (type pdf)
 <use figures/memory_all.pdf>
 Package pdftex.def Info: figures/memory_all.pdf  used on input line 27.
@@ -1904,60 +1920,55 @@ Package pdftex.def Info: figures/memory_all.pdf  used on input line 27.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[11
+[12
 
- <./figures/totalruntime_all.pdf>] [12 <./figures/totalruntime_noann.pdf> <./fi
+ <./figures/totalruntime_all.pdf>] [13 <./figures/totalruntime_noann.pdf> <./fi
 gures/memory_all.pdf
 
 pdfTeX warning: pdflatex (file ./figures/memory_all.pdf): PDF inclusion: multip
 le pdfs with page group included in a single page
 >]
-<figures/ann_splitruntime.pdf, id=388, 402.41231pt x 257.74498pt>
+<figures/ann_splitruntime.pdf, id=395, 402.41231pt x 257.74498pt>
 File: figures/ann_splitruntime.pdf Graphic file (type pdf)
 <use figures/ann_splitruntime.pdf>
 Package pdftex.def Info: figures/ann_splitruntime.pdf  used on input line 40.
 (pdftex.def)             Requested size: 455.24408pt x 291.58665pt.
- [13 <./figures/ann_splitruntime.pdf>]
-<figures/runtime_filltypes.pdf, id=409, 408.21524pt x 285.31673pt>
+ [14 <./figures/ann_splitruntime.pdf>]
+<figures/runtime_filltypes.pdf, id=416, 408.78836pt x 288.24936pt>
 File: figures/runtime_filltypes.pdf Graphic file (type pdf)
 <use figures/runtime_filltypes.pdf>
 Package pdftex.def Info: figures/runtime_filltypes.pdf  used on input line 58.
-(pdftex.def)             Requested size: 455.24408pt x 318.20729pt.
- [14 <./figures/runtime_filltypes.pdf>]
-<figures/memory_filltypes.pdf, id=426, 404.20024pt x 285.31673pt>
+(pdftex.def)             Requested size: 455.24408pt x 321.00735pt.
+ [15 <./figures/runtime_filltypes.pdf>]
+<figures/memory_filltypes.pdf, id=434, 404.53839pt x 288.24936pt>
 File: figures/memory_filltypes.pdf Graphic file (type pdf)
 <use figures/memory_filltypes.pdf>
 Package pdftex.def Info: figures/memory_filltypes.pdf  used on input line 67.
-(pdftex.def)             Requested size: 455.24408pt x 321.35493pt.
-[15 <./figures/memory_filltypes.pdf>]
-<figures/runtime_fill11.pdf, id=447, 402.41231pt x 257.74498pt>
+(pdftex.def)             Requested size: 455.24408pt x 324.38087pt.
+[16 <./figures/memory_filltypes.pdf>]
+<figures/runtime_fill11.pdf, id=453, 402.64952pt x 258.97118pt>
 File: figures/runtime_fill11.pdf Graphic file (type pdf)
 <use figures/runtime_fill11.pdf>
 Package pdftex.def Info: figures/runtime_fill11.pdf  used on input line 83.
-(pdftex.def)             Requested size: 455.24408pt x 291.58665pt.
- [16 <./figures/runtime_fill11.pdf>]
-<figures/memory_fill11.pdf, id=466, 400.18524pt x 257.74498pt>
+(pdftex.def)             Requested size: 455.24408pt x 292.81183pt.
+ [17 <./figures/runtime_fill11.pdf>]
+<figures/memory_fill11.pdf, id=474, 400.28838pt x 258.97118pt>
 File: figures/memory_fill11.pdf Graphic file (type pdf)
 <use figures/memory_fill11.pdf>
 Package pdftex.def Info: figures/memory_fill11.pdf  used on input line 98.
-(pdftex.def)             Requested size: 455.24408pt x 293.22665pt.
+(pdftex.def)             Requested size: 455.24408pt x 294.52681pt.
 
 (./kapitel/ergebnistabelle.tex)
 
 LaTeX Warning: Float too large for page by 27.65216pt on input line 109.
 
-) (./kapitel/elab_summary.tex [17 <./figures/memory_fill11.pdf>] [18]
+) (./kapitel/elab_summary.tex [18 <./figures/memory_fill11.pdf>] [19]
 chapter 7.
-[19
+[20
 
-]) (./literatur/literatur.tex [20] (./gesamt.bbl
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 8.
-
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)))
+]) (./literatur/literatur.tex [21] (./gesamt.bbl))
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 88.
- [21
+ [22
 
 
 
@@ -1967,32 +1978,38 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 88.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 88.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 88.
 Package rerunfilecheck Info: File `gesamt.out' has not changed.
-(rerunfilecheck)             Checksum: C034DF0133E207CF8CD56813A2D0D15F;1542.
+(rerunfilecheck)             Checksum: BCFC30923EB508573FFD08EEC486BED9;1554.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 88.
  ) 
 Here is how much of TeX's memory you used:
- 30810 strings out of 494847
- 603695 string characters out of 6179081
- 914017 words of memory out of 5000000
- 33584 multiletter control sequences out of 15000+600000
+ 30909 strings out of 492982
+ 605955 string characters out of 6134896
+ 920459 words of memory out of 5000000
+ 33906 multiletter control sequences out of 15000+600000
  592560 words of font info for 95 fonts, out of 8000000 for 9000
- 62 hyphenation exceptions out of 8191
- 60i,19n,77p,10429b,775s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 1144 hyphenation exceptions out of 8191
+ 60i,20n,77p,10429b,775s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/hel
-vetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/ut
-mri8a.pfb>
-Output written on gesamt.pdf (24 pages, 1161065 bytes).
+fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/
+lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texm
+f/fonts/type1/public/lm/lmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
+/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhv
+b8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/font
+s/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/ti
+mes/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb
+>
+Output written on gesamt.pdf (25 pages, 1200631 bytes).
 PDF statistics:
- 558 PDF objects out of 1000 (max. 8388607)
- 421 compressed objects within 5 object streams
- 71 named destinations out of 1000 (max. 500000)
+ 567 PDF objects out of 1000 (max. 8388607)
+ 438 compressed objects within 5 object streams
+ 73 named destinations out of 1000 (max. 500000)
  281 words of extra memory for PDF output out of 10000 (max. 10000000)
 
